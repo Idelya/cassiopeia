@@ -58,9 +58,13 @@ const BlockUserModal = ({
             value={formik.values.blockReason}
           />
         </DialogContent>
-        <DialogActions>
-          <Button onClick={onClose}>Anuluj</Button>
-          <Button type="submit">Zablokuj</Button>
+        <DialogActions sx={{ p: 3 }}>
+          <Button onClick={onClose} variant="outlined">
+            Anuluj
+          </Button>
+          <Button type="submit" variant="contained">
+            Zablokuj
+          </Button>
         </DialogActions>
       </form>
     </Dialog>
