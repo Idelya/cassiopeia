@@ -1,4 +1,4 @@
-import { Box, IconButton, Tooltip } from "@mui/material";
+import { IconButton, Tooltip } from "@mui/material";
 import MaterialReactTable from "material-react-table";
 import { MRT_Localization_PL } from "material-react-table/locales/pl";
 import BlockIcon from "@mui/icons-material/Block";

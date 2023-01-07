@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
-import LoginForm from "../Login/LoginForm";
-import { Autocomplete, Box, TextField } from "@mui/material";
+import { Box } from "@mui/material";
 import UsersList from "./UsersList";
 import { User } from "../../types/types";
 import BlockUserModal from "./BlockUserModal";
