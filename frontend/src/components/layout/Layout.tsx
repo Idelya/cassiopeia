@@ -10,6 +10,12 @@ const theme = createTheme({
     body1: {
       fontFamily: "Arial",
     },
+    body2: {
+      fontFamily: "Arial",
+    },
+    overline: {
+      fontFamily: "Arial",
+    },
   },
   palette: {
     primary: {
