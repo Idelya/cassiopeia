@@ -1,10 +1,5 @@
-import { Box, Grid, IconButton, Tooltip } from "@mui/material";
-import MaterialReactTable from "material-react-table";
-import { MRT_Localization_PL } from "material-react-table/locales/pl";
-import BlockIcon from "@mui/icons-material/Block";
-import LockOpenIcon from "@mui/icons-material/LockOpen";
+import { Grid } from "@mui/material";
 import React from "react";
-import { User } from "../types/types";
 
 interface OffertsListProps {
   children: React.ReactNode[];
