@@ -32,7 +32,9 @@ const Sidebar = ({ children }: SidebarProps) => {
           <StarIcon />
         </IconButton>
       </Drawer>
-      <Container sx={{ flexGrow: 1 }}>{children}</Container>
+      <Container maxWidth="xl" sx={{ flexGrow: 1, overflowY: "auto" }}>
+        {children}
+      </Container>
     </Box>
   );
 };
