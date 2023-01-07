@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material";
-import LoginForm from "../../Login/LoginForm";
+import LoginForm from "../../components/Login/LoginForm";
 const LoginPage = () => {
   const theme = useTheme();
 
