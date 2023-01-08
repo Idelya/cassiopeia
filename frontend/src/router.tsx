@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { AdminPage } from "./routes/AdminPage";
 import LoginPage from "./routes/LoginPage/LoginPage";
 import { ReportsPage } from "./routes/ReportsPage";
+import { SellerPage } from "./routes/SellerPage";
 
 const Router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const Router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
+  },
+  {
+    path: "/myofferts",
+    element: <SellerPage />,
   },
   {
     path: "/admin",

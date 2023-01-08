@@ -1,8 +1,7 @@
 import React from "react";
-import Layout from "../../components/layout/Layout";
 import BanUserSection from "../../components/Admin/BanUserSection";
 import Sidebar from "../../components/layout/Sidebar";
-const AdminPage = () => {
+const SellerPage = () => {
   return (
     <Sidebar>
       <BanUserSection />
@@ -10,4 +9,4 @@ const AdminPage = () => {
   );
 };
 
-export default AdminPage;
+export default SellerPage;

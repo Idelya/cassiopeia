@@ -1,13 +1,18 @@
 import React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { Drawer } from "@mui/material";
 
 const theme = createTheme({
   typography: {
     fontFamily: "Book Antiqua, Arial",
 
     body1: {
+      fontFamily: "Arial",
+    },
+    body2: {
+      fontFamily: "Arial",
+    },
+    overline: {
       fontFamily: "Arial",
     },
   },
