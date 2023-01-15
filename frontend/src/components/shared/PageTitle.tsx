@@ -2,8 +2,6 @@ import React from "react";
 import { Typography, useTheme } from "@mui/material";
 
 const PageTitle = (props: any) => {
-  const theme = useTheme();
-
   return (
     <Typography
         variant="h4"

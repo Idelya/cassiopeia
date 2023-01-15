@@ -3,7 +3,6 @@ import {
   Button,
   Card,
   CardContent,
-  CardMedia,
   Divider,
   Typography,
   useTheme,
@@ -11,15 +10,12 @@ import {
 } from "@mui/material";
 import React from "react";
 import { ReportDefinition } from "../../types/types";
-//@ts-expect-error
-import Placeholder from "../../images/placeholder.png";
 
 interface ReportItemProps {
   reportDefinition: ReportDefinition;
 }
 
 const ReportItem = ({ reportDefinition } : ReportItemProps) => {
-  const theme = useTheme();
 
   return (
     <Card sx={{ height: 250, width: 1000, display: "flex", p: 1, m: 3 }}>

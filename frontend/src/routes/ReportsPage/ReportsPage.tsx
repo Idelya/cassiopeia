@@ -1,14 +1,11 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import { Button, useTheme } from "@mui/material";
-import LoginForm from "../../components/Login/LoginForm";
 import Sidebar from "../../components/layout/Sidebar";
 import PageTitle from "../../components/shared/PageTitle";
 import ReportItem from "../../components/Reports/ReportItem";
 import { ReportDefinition } from "../../types/types";
 const ReportsPage = () => {
-  const theme = useTheme();
 
   const reportsDefinitions: ReportDefinition[] = [
     {
