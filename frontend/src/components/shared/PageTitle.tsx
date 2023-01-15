@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, useTheme } from "@mui/material";
+import { Typography } from "@mui/material";
 
 const PageTitle = (props: any) => {
   return (
