@@ -20,6 +20,12 @@ export type DeliveryType = {
   name: string;
 };
 
+export type ReportDefinition = {
+  id: number;
+  name: string;
+  description: string;
+}
+
 export enum DeliveryStatus {
   SOLD = "Zamówiony",
   SEND = "Nadany",

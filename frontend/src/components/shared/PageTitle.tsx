@@ -8,7 +8,7 @@ const PageTitle = (props: any) => {
     <Typography
         variant="h4"
         component="h2"
-        sx={{ color: theme.palette.primary.contrastText, p: 5 }}
+        // sx={{ color: theme.palette.primary.contrastText, p: 5 }}
       >
         {props.titleText}
       </Typography>
