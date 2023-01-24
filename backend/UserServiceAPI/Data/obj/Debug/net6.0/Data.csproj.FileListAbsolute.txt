@@ -1,0 +1,14 @@
+C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\Data\bin\Debug\net6.0\Data.deps.json
+C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\Data\bin\Debug\net6.0\Data.dll
+C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\Data\bin\Debug\net6.0\Data.pdb
+C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\Data\obj\Debug\net6.0\Data.csproj.AssemblyReference.cache
+C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\Data\obj\Debug\net6.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\Data\obj\Debug\net6.0\Data.AssemblyInfoInputs.cache
+C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\Data\obj\Debug\net6.0\Data.AssemblyInfo.cs
+C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\Data\obj\Debug\net6.0\Data.csproj.CoreCompileInputs.cache
+C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\Data\obj\Debug\net6.0\Data.dll
+C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\Data\obj\Debug\net6.0\refint\Data.dll
+C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\Data\obj\Debug\net6.0\Data.pdb
+C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\Data\obj\Debug\net6.0\ref\Data.dll
+C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\Data\bin\Debug\net6.0\Data.runtimeconfig.json
+C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\Data\obj\Debug\net6.0\Data.genruntimeconfig.cache
