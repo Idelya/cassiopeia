@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Data.Models;
+using Microsoft.OpenApi.Models;
 
 namespace UserServiceAPI
 {
@@ -30,6 +31,23 @@ namespace UserServiceAPI
                .AddEntityFrameworkStores<UserContext>()
                .AddDefaultTokenProviders();
 
+
+            services.AddControllers();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                builder => builder
+                   .AllowAnyMethod()
+                   .AllowAnyHeader()
+                   .SetIsOriginAllowed(origin => true)
+                   .AllowCredentials());
+            });
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "User Service", Version = "v1" });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -44,16 +62,16 @@ namespace UserServiceAPI
             app.UseHttpsRedirection();
             app.UseRouting();
 
-            app.UseAuthentication();
-            app.UseAuthorization();
+            //app.UseAuthentication();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
 
-            ////app.UseSwagger();
-            //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Funtest v1"));
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Funtest v1"));
         }
     }
 }
