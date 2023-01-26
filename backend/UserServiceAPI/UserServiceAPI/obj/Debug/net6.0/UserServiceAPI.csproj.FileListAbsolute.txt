@@ -3,7 +3,6 @@ C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\ba
 C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\UserServiceAPI\obj\Debug\net6.0\UserServiceAPI.AssemblyInfoInputs.cache
 C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\UserServiceAPI\obj\Debug\net6.0\UserServiceAPI.AssemblyInfo.cs
 C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\UserServiceAPI\obj\Debug\net6.0\UserServiceAPI.csproj.CoreCompileInputs.cache
-C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\UserServiceAPI\obj\Debug\net6.0\UserServiceAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\UserServiceAPI\obj\Debug\net6.0\UserServiceAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\UserServiceAPI\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\UserServiceAPI\bin\Debug\net6.0\appsettings.json
@@ -74,3 +73,4 @@ C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\ba
 C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\UserServiceAPI\obj\Debug\net6.0\UserServiceAPI.pdb
 C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\UserServiceAPI\obj\Debug\net6.0\UserServiceAPI.genruntimeconfig.cache
 C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\UserServiceAPI\obj\Debug\net6.0\ref\UserServiceAPI.dll
+C:\Users\Daria\studia\studia_magisterskie\semestr_II\psi_p\projekt\cassiopeia\backend\UserServiceAPI\UserServiceAPI\obj\Debug\net6.0\UserServiceAPI.MvcApplicationPartsAssemblyInfo.cs

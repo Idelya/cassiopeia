@@ -21,17 +21,6 @@ namespace UserServiceAPI
                  options.UseNpgsql(
                      Configuration.GetConnectionString("DefaultConnection")));
 
-            services
-               .AddIdentity<User, IdentityRole>(opt =>
-               {
-                   //opt.Lockout.AllowedForNewUsers = false;
-                   //opt.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%^&*()-._@+";
-               })
-               .AddSignInManager<SignInManager<User>>()
-               .AddEntityFrameworkStores<UserContext>()
-               .AddDefaultTokenProviders();
-
-
             services.AddControllers();
 
             services.AddCors(options =>
