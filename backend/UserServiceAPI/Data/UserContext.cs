@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Data
 {
-    public class UserContext : IdentityDbContext<User, IdentityRole, string>
+    public class UserContext : DbContext
     {
         public DbSet<User> Users { get; set; }
 
         public UserContext(DbContextOptions<UserContext> options) : base(options) { }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(builder);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
