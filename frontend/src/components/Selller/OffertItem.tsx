@@ -1,6 +1,7 @@
 import {
   Box,
   Card,
+  CardActionArea,
   CardContent,
   CardMedia,
   Divider,
@@ -11,15 +12,18 @@ import React from "react";
 import { ExtendOffert } from "../../types/types";
 //@ts-expect-error
 import Placeholder from "../../images/placeholder.png";
+import { useNavigate } from "react-router";
 
 interface OffertItemProps {
   offert: ExtendOffert;
 }
 const OffertItem = ({ offert }: OffertItemProps) => {
   const theme = useTheme();
+  const navigate = useNavigate();
 
   return (
     <Card sx={{ height: 250, width: 600, display: "flex", p: 1 }}>
+    <CardActionArea onClick={() => navigate("/offertedit/"+offert.id)} sx={{ height: 250, width: 600, display: "flex", p: 1 }}>
       <CardMedia
         sx={{ height: "100%", minWidth: 250 }}
         image={Placeholder}
@@ -56,6 +60,7 @@ const OffertItem = ({ offert }: OffertItemProps) => {
           <Typography variant="h5">{offert.price} zł</Typography>
         </Box>
       </CardContent>
+      </CardActionArea>
     </Card>
   );
 };

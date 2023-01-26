@@ -11,6 +11,7 @@ export type Photo = {
 };
 
 export type ExtendOffert = {
+  id: number;
   name: string;
   description: string;
   price: number;

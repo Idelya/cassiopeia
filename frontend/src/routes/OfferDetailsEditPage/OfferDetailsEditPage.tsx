@@ -1,11 +1,10 @@
 import React from "react";
 import Sidebar from "../../components/layout/Sidebar";
-import NewOfferSection from "../../components/OfferDetails/NewOfferSection";
-
+import OfferSectionEdit from "../../components/OfferDetails/OfferSectionEdit";
 const OfferDetailsEditPage = () => {
   return (
     <Sidebar>
-      <NewOfferSection />
+      <OfferSectionEdit />
     </Sidebar>
   );
 };
