@@ -50,7 +50,10 @@ const NewOfferSection = () => {
   return (
     <Grid container spacing={2} sx={{ width: "100%", p: 3 }}>
       <Grid item xs={6} sx={{ display: "flex", justifyContent: "center" }}>
-        <OfferGalleryEdit />
+        <OfferGalleryEdit
+          offer={newOffer}
+          onChange={(updatedOffer: ExtendOffert) => setNewOffer(updatedOffer)}
+        />
       </Grid>
       <Grid item xs={6} sx={{ display: "flex", justifyContent: "center" }}>
         <OfferMainDetailsEdit

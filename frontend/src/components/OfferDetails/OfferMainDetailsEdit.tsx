@@ -15,13 +15,6 @@ interface OfferMainDetailsEditProps {
   onChange: (offer: ExtendOffert) => void;
 }
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {},
-  },
-};
 const OfferMainDetailsEdit = ({
   offer,
   onChange,
@@ -63,7 +56,6 @@ const OfferMainDetailsEdit = ({
               })
             }
             input={<OutlinedInput />}
-            MenuProps={MenuProps}
           >
             {deliveryTypes.map(({ id, name, price }) => (
               <MenuItem key={name} value={id}>

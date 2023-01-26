@@ -5,6 +5,11 @@ export type User = {
   ban: boolean;
 };
 
+export type Photo = {
+  id: number;
+  src: string;
+};
+
 export type ExtendOffert = {
   name: string;
   description: string;
@@ -13,7 +18,7 @@ export type ExtendOffert = {
   deliveryTypes: number[];
   status?: DeliveryStatus;
   mainImage?: string;
-  photos?: [];
+  photos?: Photo[];
 };
 
 export type DeliveryType = {
