@@ -10,9 +10,10 @@ export type ExtendOffert = {
   description: string;
   price: number;
   displaysAmount: number;
-  deliveryTypes: DeliveryType[];
+  deliveryTypes: number[];
   status?: DeliveryStatus;
   mainImage?: string;
+  photos?: [];
 };
 
 export type DeliveryType = {
@@ -24,7 +25,7 @@ export type ReportDefinition = {
   id: number;
   name: string;
   description: string;
-}
+};
 
 export enum DeliveryStatus {
   SOLD = "Zamówiony",

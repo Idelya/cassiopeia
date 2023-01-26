@@ -2,6 +2,7 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { AdminPage } from "./routes/AdminPage";
 import LoginPage from "./routes/LoginPage/LoginPage";
+import { NewOfferPage } from "./routes/NewOfferPage";
 import { ReportsPage } from "./routes/ReportsPage";
 import { SellerPage } from "./routes/SellerPage";
 
@@ -21,6 +22,10 @@ const Router = createBrowserRouter([
   {
     path: "/myofferts",
     element: <SellerPage />,
+  },
+  {
+    path: "/newoffer",
+    element: <NewOfferPage />,
   },
   {
     path: "/admin",

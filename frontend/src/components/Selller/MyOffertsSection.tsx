@@ -11,6 +11,7 @@ import {
 import OffertsList from "../OffertsList";
 import OffertItem from "./OffertItem";
 import { DeliveryStatus, ExtendOffert } from "../../types/types";
+import { useNavigate } from "react-router";
 
 const offertsMockUp: ExtendOffert[] = [
   {
@@ -58,6 +59,8 @@ const offertsMockUp: ExtendOffert[] = [
 ];
 const MyOffertsSection = () => {
   const [seeOnlyActual, setSeeOnlyActual] = useState(false);
+  const navigate = useNavigate();
+
   return (
     <Box sx={{ display: "flex", flexDirection: "column", m: 1 }}>
       <Box
@@ -67,8 +70,14 @@ const MyOffertsSection = () => {
           Twoje Oferty
         </Typography>
         <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
-          <Button variant="contained">Dodaj ofertę</Button>
-          <Button variant="outlined" sx={{ maxWidth: 200 }}>
+          <Button variant="contained" onClick={() => navigate("/newoffer")}>
+            Dodaj ofertę
+          </Button>
+          <Button
+            variant="outlined"
+            sx={{ maxWidth: 200 }}
+            onClick={() => navigate("/reports")}
+          >
             Zobacz raporty sprzedaży
           </Button>
         </Box>
