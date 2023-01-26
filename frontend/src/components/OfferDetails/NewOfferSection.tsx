@@ -48,21 +48,24 @@ const NewOfferSection = () => {
   });
 
   return (
-    <Grid container spacing={2} sx={{ width: "100%", p: 3 }}>
-      <Grid item xs={6} sx={{ display: "flex", justifyContent: "center" }}>
+    <Grid container spacing={2} sx={{ width: "100%", p: 7 }}>
+      <Grid item xs={6} sx={{ display: "flex", justifyContent: "left" }}>
         <OfferGalleryEdit
           offer={newOffer}
           onChange={(updatedOffer: ExtendOffert) => setNewOffer(updatedOffer)}
         />
       </Grid>
-      <Grid item xs={6} sx={{ display: "flex", justifyContent: "center" }}>
+      <Grid item xs={6} sx={{ display: "flex", justifyContent: "right" }}>
         <OfferMainDetailsEdit
           offer={newOffer}
           onChange={(updatedOffer: ExtendOffert) => setNewOffer(updatedOffer)}
         />
       </Grid>
       <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
-        <OfferDescriptionEdit />
+        <OfferDescriptionEdit
+          offer={newOffer}
+          onChange={(updatedOffer: ExtendOffert) => setNewOffer(updatedOffer)}
+        />
       </Grid>
       <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
         <Button variant="contained" sx={{ m: 2 }}>
