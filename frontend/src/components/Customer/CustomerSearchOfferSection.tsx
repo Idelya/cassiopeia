@@ -4,8 +4,6 @@ import {
   Autocomplete,
   Box,
   Button,
-  Checkbox,
-  FormControlLabel,
   TextField,
 } from "@mui/material";
 import OffertsList from "../OffertsList";
