@@ -1,6 +1,5 @@
-import { Typography } from "@material-ui/core";
-import { styled } from "@material-ui/styles";
-import { Box, Checkbox, FormControlLabel, IconButton } from "@mui/material";
+import { styled } from '@mui/system';
+import { Box, Checkbox, FormControlLabel, IconButton, Typography } from "@mui/material";
 import React, { useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import { photos } from "../../static/mockUpData";
