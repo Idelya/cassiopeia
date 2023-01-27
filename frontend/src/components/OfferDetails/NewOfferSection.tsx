@@ -1,42 +1,15 @@
 import React, { useState } from "react";
-import Typography from "@mui/material/Typography";
 import {
-  Autocomplete,
-  Box,
   Button,
-  Checkbox,
-  FormControlLabel,
-  Grid,
-  TextField,
+  Grid
 } from "@mui/material";
-import { DeliveryStatus, ExtendOffert } from "../../types/types";
+import { ExtendOffert } from "../../types/types";
 import { useNavigate } from "react-router";
 import OfferGalleryEdit from "./OfferGalleryEdit";
 import OfferMainDetailsEdit from "./OfferMainDetailsEdit";
-import OfferDescription from "./OfferDescription";
 import OfferDescriptionEdit from "./OfferDescriptionEdit";
 
-const offertsMockUp: ExtendOffert[] = [
-  {
-    id: 1,
-    name: "Nazwa Produktu",
-    price: 40.38,
-    status: DeliveryStatus.SEND,
-    displaysAmount: 30,
-    deliveryTypes: [],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
-  },
-  {
-    id: 1,
-    name: "Nazwa Produktu 2",
-    price: 40.38,
-    displaysAmount: 12,
-    deliveryTypes: [],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
-  },
-];
+
 const NewOfferSection = () => {
   const navigate = useNavigate();
   const [newOffer, setNewOffer] = useState<ExtendOffert>({

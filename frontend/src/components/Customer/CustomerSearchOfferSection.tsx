@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Typography from "@mui/material/Typography";
+import React from "react";
 import {
   Autocomplete,
   Box,
@@ -88,7 +87,7 @@ const CustomerSearchOfferSection = () => {
             />
           )}
         />
-        <Button sx={{ml: 3, p: 1}} startIcon={<ShoppingBasketIcon/>}>Koszyk</Button>
+        <Button sx={{ml: 3, p: 2}} startIcon={<ShoppingBasketIcon/>} variant="outlined" onClick={() => navigate("/basket")}>Koszyk</Button>
       </Box>
       <OffertsList>
         {offertsMockUp.map((offert) => (

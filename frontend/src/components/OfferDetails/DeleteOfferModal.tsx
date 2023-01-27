@@ -6,10 +6,7 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
-  TextField,
 } from "@mui/material";
-import { User } from "../../types/types";
-import { useFormik } from "formik";
 
 interface DeleteOfferModalProps {
   open: boolean;

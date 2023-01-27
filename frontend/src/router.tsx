@@ -1,6 +1,7 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { AdminPage } from "./routes/AdminPage";
+import { BasketPage } from "./routes/BasketPage";
 import { CustomerPage } from "./routes/CustomerPage";
 import LoginPage from "./routes/LoginPage/LoginPage";
 import { NewOfferPage } from "./routes/NewOfferPage";
@@ -45,6 +46,10 @@ const Router = createBrowserRouter([
   {
     path: "/reports",
     element: <ReportsPage />,
+  },
+  {
+    path: "/basket",
+    element: <BasketPage />,
   },
 ]);
 

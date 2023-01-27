@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Box, Typography, IconButton, FormControlLabel, Checkbox } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React, { useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import { photos } from "../../static/mockUpData";

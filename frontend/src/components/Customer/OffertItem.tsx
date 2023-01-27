@@ -7,8 +7,7 @@ import {
   CardContent,
   CardMedia,
   Divider,
-  Typography,
-  useTheme,
+  Typography
 } from "@mui/material";
 import React from "react";
 import { ExtendOffert } from "../../types/types";
@@ -20,7 +19,6 @@ interface OffertItemProps {
   offert: ExtendOffert;
 }
 const OffertItem = ({ offert }: OffertItemProps) => {
-  const theme = useTheme();
   const navigate = useNavigate();
 
   return (

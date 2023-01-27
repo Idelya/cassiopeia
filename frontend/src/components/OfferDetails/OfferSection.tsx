@@ -1,6 +1,6 @@
 import { Grid, Button } from "@mui/material";
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate } from "react-router";
 import { ExtendOffert } from "../../types/types";
 import OfferDescription from "./OfferDescription";
 import OfferGallery from "./OfferGallery";
@@ -10,10 +10,7 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 const OfferSection = () => {
 
   const navigate = useNavigate();
-  let { offerId } = useParams();
-
-  const [deleteModal, setDeleteModal] = useState<boolean>(false);
-  const [offer, setOffer] = useState<ExtendOffert>({
+  const [offer] = useState<ExtendOffert>({
     id: -1,
     name: "Nazwa produktu",
     price: 10,
@@ -27,7 +24,7 @@ const OfferSection = () => {
   return  <Grid container spacing={2} sx={{ width: "100%", p: 7 }}>
   <Grid item xs={12} sx={{ display: "flex", justifyContent: "right" }}>
     <Button variant="contained" sx={{mr: 3}} onClick={() => navigate("/offerts")}>Wróć do wyszukiwarki</Button>
-    <Button startIcon={<ShoppingBasketIcon/>} variant="outlined">Koszyk</Button>
+    <Button startIcon={<ShoppingBasketIcon/>} variant="outlined" onClick={() => navigate("/basket")}>Koszyk</Button>
   </Grid>
     <Grid item xs={6} sx={{ display: "flex", justifyContent: "left" }}>
       <OfferGallery
