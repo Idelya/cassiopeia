@@ -22,26 +22,6 @@ void SendRequest(string endpoint)
     Interlocked.Increment(ref requestCount);
 }
 
-void SendAsyncRequest()
-{
-    var httpClientHandler = new HttpClientHandler();
-    httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
-    {
-        return true;
-    };
-
-    var httpClient = new HttpClient(httpClientHandler);
-
-    Console.WriteLine($"{DateTime.Now.ToString("HH:mm:ss.ffff")} Sending request..");
-    var response = httpClient.Send(new HttpRequestMessage(HttpMethod.Get, "https://localhost:7076/api/auth/benchmark-async"));
-    Console.WriteLine($"{DateTime.Now.ToString("HH:mm:ss.ffff")} Response received..");
-
-    if (!response.IsSuccessStatusCode)
-        Console.WriteLine(response.StatusCode.ToString());
-
-    Interlocked.Increment(ref requestCount);
-}
-
 var expectedRequestCount = 10;
 
 var stopwatch = new Stopwatch();
