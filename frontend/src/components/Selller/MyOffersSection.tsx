@@ -1,26 +1,19 @@
-import { ExtendOffer, DeliveryStatus } from "../types/types";
+import React, { useState } from "react";
+import Typography from "@mui/material/Typography";
+import {
+  Autocomplete,
+  Box,
+  Button,
+  Checkbox,
+  FormControlLabel,
+  TextField,
+} from "@mui/material";
+import OffersList from "../OffersList";
+import { DeliveryStatus, ExtendOffer } from "../../types/types";
+import { useNavigate } from "react-router";
+import OfferItem from "./OfferItem";
 
-export const users = [];
-
-export const deliveryTypes = [
-  { id: 1, name: "in post", price: 10 },
-  { id: 2, name: "DPD", price: 14 },
-  { id: 3, name: "poczta polska", price: 24 },
-];
-
-export const photos = [
-  {
-    id: 1,
-    src: "https://images.freeimages.com/images/large-previews/a3e/wild-horse-1334844.jpg",
-  },
-  {
-    id: 2,
-    src: "https://images.freeimages.com/images/large-previews/fcc/bench-1307687.jpg",
-  },
-];
-
-
-export const offersMockUp: ExtendOffer[] = [
+const offersMockUp: ExtendOffer[] = [
   {
     id: 1,
     name: "Nazwa Produktu",
@@ -69,3 +62,71 @@ export const offersMockUp: ExtendOffer[] = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
   },
 ];
+const MyOffersSection = () => {
+  const [seeOnlyActual, setSeeOnlyActual] = useState(false);
+  const navigate = useNavigate();
+
+  return (
+    <Box sx={{ display: "flex", flexDirection: "column", m: 1 }}>
+      <Box
+        sx={{ display: "flex", justifyContent: "space-between", m: 1, mb: 4 }}
+      >
+        <Typography variant="h3" component="h1" sx={{ color: "primary" }}>
+          Twoje Oferty
+        </Typography>
+        <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
+          <Button variant="contained" onClick={() => navigate("/newoffer")}>
+            Dodaj ofertę
+          </Button>
+          <Button
+            variant="outlined"
+            sx={{ maxWidth: 200 }}
+            onClick={() => navigate("/reports")}
+          >
+            Zobacz raporty sprzedaży
+          </Button>
+        </Box>
+        <FormControlLabel
+          sx={{
+            maxWidth: 180,
+            "& .MuiTypography-body1": {
+              fontFamily: "Book Antiqua, Arial",
+            },
+          }}
+          label="Zobacz tylko aktualne oferty"
+          control={
+            <Checkbox
+              checked={seeOnlyActual}
+              onChange={() => setSeeOnlyActual(!seeOnlyActual)}
+            />
+          }
+        />
+        <Autocomplete
+          freeSolo
+          id="search-offer"
+          options={[]}
+          sx={{
+            minWidth: 240,
+          }}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="Wyszukaj..."
+              InputProps={{
+                ...params.InputProps,
+                type: "search",
+              }}
+            />
+          )}
+        />
+      </Box>
+      <OffersList>
+        {offersMockUp.map((offer) => (
+          <OfferItem offer={offer} />
+        ))}
+      </OffersList>
+    </Box>
+  );
+};
+
+export default MyOffersSection;

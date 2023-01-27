@@ -5,7 +5,9 @@ import Sidebar from "../../components/layout/Sidebar";
 import PageTitle from "../../components/shared/PageTitle";
 import ReportItem from "../../components/Reports/ReportItem";
 import { ReportDefinition } from "../../types/types";
+import { useNavigate } from "react-router";
 const ReportsPage = () => {
+  const navigate = useNavigate();
 
   const reportsDefinitions: ReportDefinition[] = [
     {
@@ -30,7 +32,7 @@ const ReportsPage = () => {
       <Sidebar>
         <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2, maxWidth: 250, m: 2 }}>
           <PageTitle titleText={"Analityka"} />
-          <Button variant="contained">Wróć</Button>
+          <Button variant="contained" onClick={() => navigate("/myoffers")}>Wróć</Button>
         </Box>
 
         

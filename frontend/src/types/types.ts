@@ -5,14 +5,21 @@ export type User = {
   ban: boolean;
 };
 
-export type ExtendOffert = {
+export type Photo = {
+  id: number;
+  src: string;
+};
+
+export type ExtendOffer = {
+  id: number;
   name: string;
   description: string;
   price: number;
   displaysAmount: number;
-  deliveryTypes: DeliveryType[];
+  deliveryTypes: number[];
   status?: DeliveryStatus;
   mainImage?: string;
+  photos?: Photo[];
 };
 
 export type DeliveryType = {
@@ -24,7 +31,7 @@ export type ReportDefinition = {
   id: number;
   name: string;
   description: string;
-}
+};
 
 export enum DeliveryStatus {
   SOLD = "Zamówiony",

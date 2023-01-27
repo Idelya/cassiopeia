@@ -1,12 +1,13 @@
 import React from "react";
 import Sidebar from "../../components/layout/Sidebar";
-import MyOffertsSection from "../../components/Selller/MyOffertsSection";
-const AdminPage = () => {
+import MyOffersSection from "../../components/Selller/MyOffersSection";
+
+const SellerPage = () => {
   return (
     <Sidebar>
-      <MyOffertsSection />
+      <MyOffersSection />
     </Sidebar>
   );
 };
 
-export default AdminPage;
+export default SellerPage;
