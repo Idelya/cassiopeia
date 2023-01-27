@@ -1,10 +1,11 @@
 import React from "react";
 import Sidebar from "../../components/layout/Sidebar";
-import MyOffertsSection from "../../components/Selller/MyOffertsSection";
+import MyOffersSection from "../../components/Selller/MyOffersSection";
+
 const SellerPage = () => {
   return (
     <Sidebar>
-      <MyOffertsSection />
+      <MyOffersSection />
     </Sidebar>
   );
 };

@@ -1,10 +1,10 @@
 import { Grid } from "@mui/material";
 import React from "react";
 
-interface OffertsListProps {
+interface OffersListProps {
   children: React.ReactNode[];
 }
-const OffertsList = ({ children }: OffertsListProps) => {
+const OffersList = ({ children }: OffersListProps) => {
   return (
     <Grid container rowSpacing={7} columnSpacing={7}>
       {children.map((child) => (
@@ -16,4 +16,4 @@ const OffertsList = ({ children }: OffertsListProps) => {
   );
 };
 
-export default OffertsList;
+export default OffersList;

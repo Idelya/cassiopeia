@@ -12,7 +12,7 @@ const BasketSection = () => {
         <Typography variant="h3" component="h1" sx={{ color: "primary" }}>
           Koszyk
         </Typography>
-        <Button variant="contained" onClick={() => navigate("/offerts")}>Wróć do wyszukiwarki</Button>
+        <Button variant="contained" onClick={() => navigate("/offers")}>Wróć do wyszukiwarki</Button>
       </Box>
       <BasketList/>
       <Box sx={{pt: 5, pb: 5, display:"flex",justifyContent: "space-between" }}>

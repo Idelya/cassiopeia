@@ -1,12 +1,12 @@
 import { Box, Button, List, ListItem, ListItemText } from "@mui/material";
 import React from "react";
-import { offertsMockUp } from "../../static/mockUpData";
+import { offersMockUp } from "../../static/mockUpData";
 
 
 const BasketList = () => {
   return (
     <List>
-        {offertsMockUp.map((offer, index) => <ListItem
+        {offersMockUp.map((offer, index) => <ListItem
           key={index}
           disableGutters
           sx={{border: "1px solid black", p: 3, mb:1}}

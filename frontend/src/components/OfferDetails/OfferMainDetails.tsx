@@ -1,10 +1,10 @@
 import { Box, Typography, Button } from "@mui/material";
 import React from "react";
 import { deliveryTypes } from "../../static/mockUpData";
-import { ExtendOffert } from "../../types/types";
+import { ExtendOffer } from "../../types/types";
 
 interface OfferMainDetailsProps {
-  offer: ExtendOffert;
+  offer: ExtendOffer;
 }
 
 const OfferMainDetails = ({

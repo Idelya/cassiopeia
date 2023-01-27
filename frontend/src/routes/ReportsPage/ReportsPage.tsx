@@ -32,7 +32,7 @@ const ReportsPage = () => {
       <Sidebar>
         <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2, maxWidth: 250, m: 2 }}>
           <PageTitle titleText={"Analityka"} />
-          <Button variant="contained" onClick={() => navigate("/myofferts")}>Wróć</Button>
+          <Button variant="contained" onClick={() => navigate("/myoffers")}>Wróć</Button>
         </Box>
 
         

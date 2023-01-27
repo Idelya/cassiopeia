@@ -1,9 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import { ExtendOffert } from "../../types/types";
+import { ExtendOffer } from "../../types/types";
 
 interface OfferDescriptionProps {
-  offer: ExtendOffert;
+  offer: ExtendOffer;
 }
 
 const OfferDescription = ({

@@ -3,11 +3,11 @@ import { Box, Typography } from "@mui/material";
 import React, { useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import { photos } from "../../static/mockUpData";
-import { ExtendOffert } from "../../types/types";
+import { ExtendOffer } from "../../types/types";
 
 
 interface OfferGalleryEditProps {
-  offer: ExtendOffert;
+  offer: ExtendOffer;
 }
 
 const StyledImg = styled("img")({

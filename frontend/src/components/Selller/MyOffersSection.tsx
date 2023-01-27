@@ -8,12 +8,12 @@ import {
   FormControlLabel,
   TextField,
 } from "@mui/material";
-import OffertsList from "../OffertsList";
-import OffertItem from "./OffertItem";
-import { DeliveryStatus, ExtendOffert } from "../../types/types";
+import OffersList from "../OffersList";
+import { DeliveryStatus, ExtendOffer } from "../../types/types";
 import { useNavigate } from "react-router";
+import OfferItem from "./OfferItem";
 
-const offertsMockUp: ExtendOffert[] = [
+const offersMockUp: ExtendOffer[] = [
   {
     id: 1,
     name: "Nazwa Produktu",
@@ -62,7 +62,7 @@ const offertsMockUp: ExtendOffert[] = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
   },
 ];
-const MyOffertsSection = () => {
+const MyOffersSection = () => {
   const [seeOnlyActual, setSeeOnlyActual] = useState(false);
   const navigate = useNavigate();
 
@@ -103,7 +103,7 @@ const MyOffertsSection = () => {
         />
         <Autocomplete
           freeSolo
-          id="search-offert"
+          id="search-offer"
           options={[]}
           sx={{
             minWidth: 240,
@@ -120,13 +120,13 @@ const MyOffertsSection = () => {
           )}
         />
       </Box>
-      <OffertsList>
-        {offertsMockUp.map((offert) => (
-          <OffertItem offert={offert} />
+      <OffersList>
+        {offersMockUp.map((offer) => (
+          <OfferItem offer={offer} />
         ))}
-      </OffertsList>
+      </OffersList>
     </Box>
   );
 };
 
-export default MyOffertsSection;
+export default MyOffersSection;

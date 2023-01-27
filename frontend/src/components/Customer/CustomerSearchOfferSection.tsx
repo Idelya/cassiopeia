@@ -5,13 +5,13 @@ import {
   Button,
   TextField,
 } from "@mui/material";
-import OffertsList from "../OffertsList";
-import OffertItem from "./OffertItem";
-import { DeliveryStatus, ExtendOffert } from "../../types/types";
+import OffersList from "../OffersList";
+import OfferItem from "./OfferItem";
+import { DeliveryStatus, ExtendOffer } from "../../types/types";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { useNavigate } from "react-router";
 
-const offertsMockUp: ExtendOffert[] = [
+const offersMockUp: ExtendOffer[] = [
   {
     id: 1,
     name: "Nazwa Produktu",
@@ -70,7 +70,7 @@ const CustomerSearchOfferSection = () => {
       >
         <Autocomplete
           freeSolo
-          id="search-offert"
+          id="search-offer"
           options={[]}
           fullWidth
           sx={{
@@ -89,11 +89,11 @@ const CustomerSearchOfferSection = () => {
         />
         <Button sx={{ml: 3, p: 2}} startIcon={<ShoppingBasketIcon/>} variant="outlined" onClick={() => navigate("/basket")}>Koszyk</Button>
       </Box>
-      <OffertsList>
-        {offertsMockUp.map((offert) => (
-          <OffertItem offert={offert} />
+      <OffersList>
+        {offersMockUp.map((offer) => (
+          <OfferItem offer={offer} />
         ))}
-      </OffertsList>
+      </OffersList>
     </Box>
   );
 };

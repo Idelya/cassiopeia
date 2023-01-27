@@ -4,13 +4,13 @@ import { Box, Checkbox, FormControlLabel, IconButton } from "@mui/material";
 import React, { useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import { photos } from "../../static/mockUpData";
-import { ExtendOffert } from "../../types/types";
+import { ExtendOffer } from "../../types/types";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 interface OfferGalleryEditProps {
-  offer: ExtendOffert;
-  onChange: (offer: ExtendOffert) => void;
+  offer: ExtendOffer;
+  onChange: (offer: ExtendOffer) => void;
 }
 
 const StyledImg = styled("img")({

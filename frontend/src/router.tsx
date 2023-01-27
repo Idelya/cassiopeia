@@ -6,7 +6,7 @@ import { CustomerPage } from "./routes/CustomerPage";
 import LoginPage from "./routes/LoginPage/LoginPage";
 import { NewOfferPage } from "./routes/NewOfferPage";
 import { OfferDetailsEditPage } from "./routes/OfferDetailsEditPage";
-import { OffertDetailsPage } from "./routes/OfferDetailsPage";
+import OfferDetailsPage from "./routes/OfferDetailsPage/OfferDetailsPage";
 import { ReportsPage } from "./routes/ReportsPage";
 import { SellerPage } from "./routes/SellerPage";
 
@@ -17,10 +17,10 @@ const Router = createBrowserRouter([
   },
   {
     path: "/offer/:offerId",
-    element: <OffertDetailsPage />,
+    element: <OfferDetailsPage />,
   },
   {
-    path: "/offertedit/:offerId",
+    path: "/offeredit/:offerId",
     element: <OfferDetailsEditPage />,
   },
   {
@@ -28,11 +28,11 @@ const Router = createBrowserRouter([
     element: <LoginPage />,
   },
   {
-    path: "/offerts",
+    path: "/offers",
     element: <CustomerPage />,
   },
   {
-    path: "/myofferts",
+    path: "/myoffers",
     element: <SellerPage />,
   },
   {

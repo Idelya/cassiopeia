@@ -3,7 +3,7 @@ import {
   Button,
   Grid
 } from "@mui/material";
-import { ExtendOffert } from "../../types/types";
+import { ExtendOffer } from "../../types/types";
 import { useNavigate } from "react-router";
 import OfferGalleryEdit from "./OfferGalleryEdit";
 import OfferMainDetailsEdit from "./OfferMainDetailsEdit";
@@ -12,7 +12,7 @@ import OfferDescriptionEdit from "./OfferDescriptionEdit";
 
 const NewOfferSection = () => {
   const navigate = useNavigate();
-  const [newOffer, setNewOffer] = useState<ExtendOffert>({
+  const [newOffer, setNewOffer] = useState<ExtendOffer>({
     id: -1,
     name: "",
     price: 10,
@@ -28,19 +28,19 @@ const NewOfferSection = () => {
       <Grid item xs={6} sx={{ display: "flex", justifyContent: "left" }}>
         <OfferGalleryEdit
           offer={newOffer}
-          onChange={(updatedOffer: ExtendOffert) => setNewOffer(updatedOffer)}
+          onChange={(updatedOffer: ExtendOffer) => setNewOffer(updatedOffer)}
         />
       </Grid>
       <Grid item xs={6} sx={{ display: "flex", justifyContent: "right" }}>
         <OfferMainDetailsEdit
           offer={newOffer}
-          onChange={(updatedOffer: ExtendOffert) => setNewOffer(updatedOffer)}
+          onChange={(updatedOffer: ExtendOffer) => setNewOffer(updatedOffer)}
         />
       </Grid>
       <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
         <OfferDescriptionEdit
           offer={newOffer}
-          onChange={(updatedOffer: ExtendOffert) => setNewOffer(updatedOffer)}
+          onChange={(updatedOffer: ExtendOffer) => setNewOffer(updatedOffer)}
         />
       </Grid>
       <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
@@ -50,7 +50,7 @@ const NewOfferSection = () => {
         <Button
           variant="outlined"
           sx={{ m: 2 }}
-          onClick={() => navigate("/myofferts")}
+          onClick={() => navigate("/myoffers")}
         >
           Cofnij
         </Button>

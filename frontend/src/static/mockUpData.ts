@@ -1,4 +1,4 @@
-import { ExtendOffert, DeliveryStatus } from "../types/types";
+import { ExtendOffer, DeliveryStatus } from "../types/types";
 
 export const users = [];
 
@@ -20,7 +20,7 @@ export const photos = [
 ];
 
 
-export const offertsMockUp: ExtendOffert[] = [
+export const offersMockUp: ExtendOffer[] = [
   {
     id: 1,
     name: "Nazwa Produktu",

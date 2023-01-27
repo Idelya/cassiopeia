@@ -1,7 +1,8 @@
 import React from "react";
 import Sidebar from "../../components/layout/Sidebar";
 import OfferSection from "../../components/OfferDetails/OfferSection";
-const OffertDetailsPage = () => {
+
+const OfferDetailsPage = () => {
   return (
     <Sidebar>
       <OfferSection />
@@ -9,4 +10,4 @@ const OffertDetailsPage = () => {
   );
 };
 
-export default OffertDetailsPage;
+export default OfferDetailsPage;

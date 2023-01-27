@@ -10,7 +10,7 @@ export type Photo = {
   src: string;
 };
 
-export type ExtendOffert = {
+export type ExtendOffer = {
   id: number;
   name: string;
   description: string;

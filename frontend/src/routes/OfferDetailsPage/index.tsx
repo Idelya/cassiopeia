@@ -1,4 +1,4 @@
-import OffertDetailsPage from "./OffertDetailsPage";
+import OfferDetailsPage from "./OfferDetailsPage";
 
 
-export { OffertDetailsPage };
+export { OfferDetailsPage };
