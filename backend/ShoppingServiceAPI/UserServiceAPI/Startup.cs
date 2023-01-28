@@ -24,7 +24,8 @@ namespace ShoppingServiceAPI
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers();
             services.AddTransient<IOfferService, OfferService>();  
-
+            services.AddTransient<IOrderService, OrderService>();
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
             services.AddCors(options =>
             {

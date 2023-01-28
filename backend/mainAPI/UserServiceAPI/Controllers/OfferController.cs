@@ -9,7 +9,7 @@ namespace MainAPI.Controllers
     [ApiController]
     public class OfferController : Controller
     {
-        public string OfferBaseUrl = $"{ShoppingServiceConfig.SHOPPING_SERVICE_BASE_URL}/{ShoppingServiceConfig.CONTROLLER_NAME}";
+        public string OfferBaseUrl = $"{ShoppingServiceConfig.SHOPPING_SERVICE_BASE_URL}/{ShoppingServiceConfig.OFFER_CONTROLLER_NAME}";
 
         [HttpGet("all")]
         public async Task<ActionResult> GetOfferAsync()

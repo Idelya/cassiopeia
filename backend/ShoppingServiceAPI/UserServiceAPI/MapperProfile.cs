@@ -10,6 +10,7 @@ namespace ShoppingServiceAPI
         {
             CreateMap<Offer, OfferResponse>().ReverseMap();
             CreateMap<Delivery, DeliveryResponse>().ReverseMap();   
+            CreateMap<AddressRequest, Address>().ReverseMap();  
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using Data.Models;
-
-namespace ShoppingServiceAPI.DTOs
+﻿namespace MainAPI.DTOs
 {
     public class OrderRequest
     {
