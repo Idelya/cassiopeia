@@ -1,10 +1,8 @@
 ﻿using Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
-using Data.Models;
 using Microsoft.OpenApi.Models;
 
-namespace UserServiceAPI
+namespace ShoppingServiceAPI
 {
     public class Startup
     {
@@ -17,10 +15,11 @@ namespace UserServiceAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<UserContext>(options =>
+            services.AddDbContext<ShoppingContext>(options =>
                  options.UseNpgsql(
                      Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers();
 
             services.AddCors(options =>

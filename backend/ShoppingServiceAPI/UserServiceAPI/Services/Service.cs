@@ -2,19 +2,19 @@
 using Data.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace UserServiceAPI.Services
+namespace ShoppingServiceAPI.Services
 {
     public class Service
     {
-        public UserContext Context { get; }
-        public UserManager<User> UserManager { get; }
-        public SignInManager<User> SignInManager { get; }
+        public ShoppingContext Context { get; }
+        public UserManager<Purchase> UserManager { get; }
+        public SignInManager<Purchase> SignInManager { get; }
 
         public Service(IServiceProvider serviceProvider)
         {
-            Context = serviceProvider.GetService<UserContext>();
-            UserManager = serviceProvider.GetService<UserManager<User>>();
-            SignInManager = serviceProvider.GetService<SignInManager<User>>();
+            Context = serviceProvider.GetService<ShoppingContext>();
+            UserManager = serviceProvider.GetService<UserManager<Purchase>>();
+            SignInManager = serviceProvider.GetService<SignInManager<Purchase>>();
         }
     }
 }

@@ -1,4 +1,4 @@
-using UserServiceAPI;
+using ShoppingServiceAPI;
 
 public class Program
 {
