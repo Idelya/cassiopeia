@@ -53,10 +53,32 @@ namespace MainAPI.Controllers
 
             for (int i = 2; i < 300_000_000; i++)
             {
-                if(i % 2 == 0)
+                if (i % 2 == 0)
                     result += i;
                 else
                     result -= i;
+            }
+
+            return Ok(result);
+        }
+
+        private static object LockingObject = new object();
+
+        [HttpGet("locked-benchmark")]
+        [AllowAnonymous]
+        public ActionResult LockedBenchmark()
+        {
+            long result = 10;
+
+            lock (LockingObject)
+            {
+                for (int i = 2; i < 300_000_000; i++)
+                {
+                    if (i % 2 == 0)
+                        result += i;
+                    else
+                        result -= i;
+                }
             }
 
             return Ok(result);

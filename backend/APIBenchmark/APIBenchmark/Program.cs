@@ -61,3 +61,12 @@ Parallel.For(0, expectedRequestCount, i => SendRequest("compute-benchmark"));
 stopwatch.Stop();
 
 Console.WriteLine($"Performance elasped time: \t {stopwatch.ElapsedMilliseconds} ms - {requestCount} requests");
+
+requestCount = 0;
+stopwatch.Restart();
+
+stopwatch.Start();
+Parallel.For(0, expectedRequestCount, i => SendRequest("locked-benchmark"));
+stopwatch.Stop();
+
+Console.WriteLine($"Performance locked elasped time: \t {stopwatch.ElapsedMilliseconds} ms - {requestCount} requests");
