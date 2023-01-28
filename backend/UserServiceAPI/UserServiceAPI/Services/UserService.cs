@@ -23,6 +23,9 @@ namespace UserServiceAPI.Services
         public async Task<bool> BanUser(BanRequest request)
         {
             var user = Context.Users.FirstOrDefault(x => x.ID == request.UserId);
+            if (user == null)
+                return false;
+
             user.Ban = true;
             user.BanReason = request.Reason;
 

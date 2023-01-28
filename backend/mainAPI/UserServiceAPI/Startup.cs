@@ -6,7 +6,7 @@ using Microsoft.OpenApi.Models;
 using MainAPI.Interfaces;
 using MainAPI.Services;
 
-namespace UserServiceAPI
+namespace mainAPI
 {
     public class Startup
     {

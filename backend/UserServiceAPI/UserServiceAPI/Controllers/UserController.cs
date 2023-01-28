@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using UserServiceAPI.DTOs;
 using UserServiceAPI.Interfaces;
 
@@ -15,7 +16,7 @@ namespace UserServiceAPI.Controllers
         }
 
         [HttpGet("all")]
-        public ActionResult<UserResponse> GetUsers()
+        public ActionResult<IEnumerable<UserResponse>> GetUsers()
         {
             return Ok(userService.GetUsers());
         }
