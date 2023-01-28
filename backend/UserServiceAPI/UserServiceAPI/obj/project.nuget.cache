@@ -1,14 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "CB69HmEUZZyA3qiuf+hf3LyykMcC/FL3S1uKLcG1o64+KDgK1e1IW5K9uPegIuF2vX3GxyDcjOsm+E8k7gjQjg==",
+  "dgSpecHash": "UYjF2RdfFycr30OpuiyCuPcYn6Vx2qPkIpR1AlpmeB4o8aE+M5b8R9rBXyYqxEAOZmJ2zPa18Eo9y9ykBuGKrg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Daria\\studia\\studia_magisterskie\\semestr_II\\psi_p\\projekt\\cassiopeia\\backend\\UserServiceAPI\\UserServiceAPI\\UserServiceAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Daria\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Daria\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\Daria\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Daria\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.13\\microsoft.aspnetcore.cryptography.internal.6.0.13.nupkg.sha512",
     "C:\\Users\\Daria\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.13\\microsoft.aspnetcore.cryptography.keyderivation.6.0.13.nupkg.sha512",
     "C:\\Users\\Daria\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.13\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.13.nupkg.sha512",
-    "C:\\Users\\Daria\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Daria\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Daria\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\Daria\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\Daria\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.13\\microsoft.entityframeworkcore.6.0.13.nupkg.sha512",

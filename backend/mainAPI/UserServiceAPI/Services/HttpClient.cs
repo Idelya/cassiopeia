@@ -1,4 +1,6 @@
 ﻿using Data.Enums;
+using MainAPI.DTOs;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net;
 
@@ -9,29 +11,25 @@ namespace MainAPI.Services
         static readonly System.Net.Http.HttpClient client = new System.Net.Http.HttpClient();
 
 
-        public static T SendRequest<T>(string _apiBaseUri, RequestMethod httpMethod, string route, Dictionary<string, string> postParams = null)
+        public static async Task<HttpResponseMessage> SendRequestAsync(string _apiBaseUri, RequestMethod httpMethod, Dictionary<string, string> postParams = null)
         {
-            HttpRequestMessage requestMessage = new HttpRequestMessage(new HttpMethod(httpMethod.ToString()), $"{_apiBaseUri}/{route}");
+            HttpRequestMessage requestMessage = new HttpRequestMessage(new HttpMethod(httpMethod.ToString()), $"{_apiBaseUri}");
 
             if (postParams != null)
-                requestMessage.Content = new FormUrlEncodedContent(postParams); 
+                requestMessage.Content = new FormUrlEncodedContent(postParams);
 
 
             HttpResponseMessage response = client.SendAsync(requestMessage).Result;
 
-            string apiResponse = response.Content.ReadAsStringAsync().Result;
-            try
-            {
-                if (apiResponse != "")
-                    return JsonConvert.DeserializeObject<T>(apiResponse);
-                else
-                    throw new Exception();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"An error ocurred while calling the API: {response.StatusCode} {response.ReasonPhrase}");
-            }
-
+            string apiResponse =  response.Content.ReadAsStringAsync().Result;
+            return response;
+            //var result = new Response() { StatusCode = response.StatusCode, Content = apiResponse };
+            //if (result.StatusCode != HttpStatusCode.OK)
+            //{
+            //    IActionResult response1 = Action(result);
+            //    return response;
+            //}
+            //return ResponseMessage(result);
         }
 
     }

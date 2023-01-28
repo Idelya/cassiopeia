@@ -1,8 +1,9 @@
 ﻿using Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
-using Data.Models;
 using Microsoft.OpenApi.Models;
+using UserServiceAPI.Interfaces;
+using UserServiceAPI.Services;
+using AutoMapper;
 
 namespace UserServiceAPI
 {
@@ -20,6 +21,9 @@ namespace UserServiceAPI
             services.AddDbContext<UserContext>(options =>
                  options.UseNpgsql(
                      Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddTransient<IUserService, UserService>();
 
             services.AddControllers();
 
