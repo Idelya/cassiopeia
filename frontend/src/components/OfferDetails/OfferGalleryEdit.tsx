@@ -6,6 +6,7 @@ import { photos } from "../../static/mockUpData";
 import { ExtendOffer } from "../../types/types";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import { useTranslation } from 'react-i18next';
 
 interface OfferGalleryEditProps {
   offer: ExtendOffer;
@@ -18,13 +19,14 @@ const StyledImg = styled("img")({
   objectFit: "contain",
 });
 const OfferGalleryEdit = ({ offer, onChange }: OfferGalleryEditProps) => {
+  const { t } = useTranslation();
   const [currentPhoto, setCurrentPhoto] = useState<undefined | number>(0);
 
   return (
     <Box>
       <Box sx={{ width: "600px", height: "300px" }}>
         {currentPhoto === undefined ? (
-          <Typography>Brak zdjęć w galerii</Typography>
+          <Typography>{ t("offer.missingPictures") }</Typography>
         ) : (
           <Carousel
             autoPlay={false}
@@ -57,7 +59,7 @@ const OfferGalleryEdit = ({ offer, onChange }: OfferGalleryEditProps) => {
         </Box>
         <FormControlLabel
           control={<Checkbox />}
-          label="Oznacz jako główne zdjęcie"
+          label={t("offer.setAsMainPicture")}
         />
       </Box>
     </Box>

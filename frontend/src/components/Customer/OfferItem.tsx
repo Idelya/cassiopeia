@@ -14,11 +14,14 @@ import { ExtendOffer } from "../../types/types";
 //@ts-expect-error
 import Placeholder from "../../images/placeholder.png";
 import { useNavigate } from "react-router";
+import { useTranslation } from "react-i18next";
 
 interface OfferItemProps {
   offer: ExtendOffer;
 }
 const OfferItem = ({ offer }: OfferItemProps) => {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
 
   return (
@@ -59,8 +62,8 @@ const OfferItem = ({ offer }: OfferItemProps) => {
             onClick={event => {
               event.stopPropagation();
               event.preventDefault();
-            }}>Dodaj</Button>
-          <Typography variant="h5">{offer.price} zł</Typography>
+            }}>{ t("add") }</Button>
+          <Typography variant="h5">{offer.price} PLN</Typography>
         </CardActions>
       </CardContent></CardActionArea>
     </Card>

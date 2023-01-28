@@ -6,17 +6,20 @@ import PageTitle from "../../components/shared/PageTitle";
 import ReportItem from "../../components/Reports/ReportItem";
 import { ReportDefinition } from "../../types/types";
 import { useNavigate } from "react-router";
+import { useTranslation } from "react-i18next";
 const ReportsPage = () => {
   const navigate = useNavigate();
 
+  const { t } = useTranslation();
+
   const reportsDefinitions: ReportDefinition[] = [
     {
-      id: 1, name: "Sprzedane produkty", 
-      description: "Raport listujący sprzedane produkty z podziałem na miasta z danego okresu czasu. Można z niego odczytać nazwę produktu, miasto adresu wysyłki, metodę dostawy, cene produktu i koszt dostawy."
+      id: 1, name: t("reports.reportTitle1"), 
+      description: t("reports.reportDesc1")
     },
     {
-      id: 1, name: "Najpopularniejsze metody dostawy", 
-      description: "Raport najchętniej wybieranych metod dostawy wraz zagregowanymi wartościami sprzedanych produktów w każdym mieście. Można z niego odczytać miasto adresu wysyłki, metodę dostawy i sumaryczną ilość i wartość produktów dla danego miasta i metody dostawy."
+      id: 1, name: t("reports.reportTitle2"), 
+      description: t("reports.reportDesc2")
     }
   ];
 
@@ -26,13 +29,12 @@ const ReportsPage = () => {
         height: "100vh",
         width: "100vw",
         m: 3
-        // backgroundColor: "primary.main",
       }}
     >
       <Sidebar>
         <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2, maxWidth: 250, m: 2 }}>
-          <PageTitle titleText={"Analityka"} />
-          <Button variant="contained" onClick={() => navigate("/myoffers")}>Wróć</Button>
+          <PageTitle titleText={t("reports.title")} />
+          <Button variant="contained" onClick={() => navigate("/myoffers")}>{t("back")}</Button>
         </Box>
 
         

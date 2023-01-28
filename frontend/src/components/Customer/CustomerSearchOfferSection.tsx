@@ -10,6 +10,7 @@ import OfferItem from "./OfferItem";
 import { DeliveryStatus, ExtendOffer } from "../../types/types";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { useNavigate } from "react-router";
+import { useTranslation } from "react-i18next";
 
 const offersMockUp: ExtendOffer[] = [
   {
@@ -61,6 +62,8 @@ const offersMockUp: ExtendOffer[] = [
   },
 ];
 const CustomerSearchOfferSection = () => {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
 
   return (
@@ -79,7 +82,7 @@ const CustomerSearchOfferSection = () => {
           renderInput={(params) => (
             <TextField
               {...params}
-              label="Wyszukaj..."
+              label={t("search") + "..."}
               InputProps={{
                 ...params.InputProps,
                 type: "search",
@@ -87,7 +90,7 @@ const CustomerSearchOfferSection = () => {
             />
           )}
         />
-        <Button sx={{ml: 3, p: 2}} startIcon={<ShoppingBasketIcon/>} variant="outlined" onClick={() => navigate("/basket")}>Koszyk</Button>
+        <Button sx={{ml: 3, p: 2}} startIcon={<ShoppingBasketIcon/>} variant="outlined" onClick={() => navigate("/basket")}>{ t("basket.basket") }</Button>
       </Box>
       <OffersList>
         {offersMockUp.map((offer) => (

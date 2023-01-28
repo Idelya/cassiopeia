@@ -13,11 +13,13 @@ import { ExtendOffer } from "../../types/types";
 //@ts-expect-error
 import Placeholder from "../../images/placeholder.png";
 import { useNavigate } from "react-router";
+import { useTranslation } from "react-i18next";
 
 interface OfferItemProps {
   offer: ExtendOffer;
 }
 const OfferItem = ({ offer }: OfferItemProps) => {
+  const { t } = useTranslation();
   const theme = useTheme();
   const navigate = useNavigate();
 
@@ -55,7 +57,7 @@ const OfferItem = ({ offer }: OfferItemProps) => {
           }}
         >
           <Typography variant="body2" sx={{ color: theme.palette.grey[700] }}>
-            Wyświetlono: {offer.displaysAmount}
+            { t("views") }: {offer.displaysAmount}
           </Typography>
           <Typography variant="h5">{offer.price} zł</Typography>
         </Box>

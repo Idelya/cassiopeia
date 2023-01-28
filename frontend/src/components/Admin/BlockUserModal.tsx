@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { User } from "../../types/types";
 import { useFormik } from "formik";
+import { useTranslation } from "react-i18next";
 
 interface BlockUserModalProps {
   open: boolean;
@@ -21,6 +22,8 @@ const BlockUserModal = ({
   onClose,
   blockedUser,
 }: BlockUserModalProps) => {
+  const { t } = useTranslation();
+  
   const formik = useFormik({
     initialValues: {
       blockReason: "",
@@ -40,18 +43,17 @@ const BlockUserModal = ({
   return (
     <Dialog open={open} onClose={onClose}>
       <form onSubmit={formik.handleSubmit}>
-        <DialogTitle>Zablokuj użytkownika</DialogTitle>
+        <DialogTitle>{ t("admin.blockDialog.title") }</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Podaj czytelny dla użytkownika powód blokady. Zostanie on wysłany do
-            użytkownika {blockedUser?.fullname}
+          { t("admin.blockDialog.text") } {blockedUser?.fullname}
           </DialogContentText>
           <TextField
             autoFocus
             required
             margin="dense"
             id="blockReason"
-            label="Powód blokady"
+            label={ t("admin.blockDialog.reasonText") }
             fullWidth
             variant="standard"
             onChange={formik.handleChange}
@@ -60,10 +62,10 @@ const BlockUserModal = ({
         </DialogContent>
         <DialogActions sx={{ p: 3 }}>
           <Button onClick={onClose} variant="outlined">
-            Anuluj
+            { t("cancel") }
           </Button>
           <Button type="submit" variant="contained">
-            Zablokuj
+            { t("admin.blockDialog.submit") }
           </Button>
         </DialogActions>
       </form>

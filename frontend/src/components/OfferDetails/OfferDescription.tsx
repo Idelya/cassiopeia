@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { ExtendOffer } from "../../types/types";
 
 interface OfferDescriptionProps {
@@ -9,6 +10,8 @@ interface OfferDescriptionProps {
 const OfferDescription = ({
   offer
 }: OfferDescriptionProps) => {
+  const { t } = useTranslation();
+
   return (
     <Box
       sx={{
@@ -16,7 +19,7 @@ const OfferDescription = ({
       }}
     >
       <Typography variant="h6" sx={{ mb: 1 }}>
-        Opis:
+      { t("offer.description") + ":" }
       </Typography>
       <Typography>
         {offer.description}

@@ -6,8 +6,10 @@ import OfferDescriptionEdit from "./OfferDescriptionEdit";
 import OfferGalleryEdit from "./OfferGalleryEdit";
 import OfferMainDetailsEdit from "./OfferMainDetailsEdit";
 import DeleteOfferModal from "./DeleteOfferModal";
+import { useTranslation } from "react-i18next";
 
 const OfferSectionEdit = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   let { offerId } = useParams();
 
@@ -44,17 +46,17 @@ const OfferSectionEdit = () => {
     </Grid>
     <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
       <Button variant="contained" sx={{ m: 2 }}>
-        Zapisz zmiany
+        { t("offer.saveChanges") }
       </Button>
       <Button
         variant="outlined"
         sx={{ m: 2 }}
         onClick={() => navigate("/myoffers")}
       >
-        Cofnij
+        { t("back") }
       </Button>
       <Button variant="contained" sx={{ m: 2 } } onClick={() => setDeleteModal(true)} color="error">
-        Usuń ofertę
+      { t("offer.deleteOffer") }
       </Button>
     </Grid>
   </Grid>

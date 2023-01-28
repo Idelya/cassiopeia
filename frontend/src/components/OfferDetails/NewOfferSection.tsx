@@ -8,9 +8,11 @@ import { useNavigate } from "react-router";
 import OfferGalleryEdit from "./OfferGalleryEdit";
 import OfferMainDetailsEdit from "./OfferMainDetailsEdit";
 import OfferDescriptionEdit from "./OfferDescriptionEdit";
+import { useTranslation } from "react-i18next";
 
 
 const NewOfferSection = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [newOffer, setNewOffer] = useState<ExtendOffer>({
     id: -1,
@@ -45,14 +47,14 @@ const NewOfferSection = () => {
       </Grid>
       <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
         <Button variant="contained" sx={{ m: 2 }}>
-          Dodaj
+          { t("add") }
         </Button>
         <Button
           variant="outlined"
           sx={{ m: 2 }}
           onClick={() => navigate("/myoffers")}
         >
-          Cofnij
+          { t("back") }
         </Button>
       </Grid>
     </Grid>

@@ -12,6 +12,7 @@ import OffersList from "../OffersList";
 import { DeliveryStatus, ExtendOffer } from "../../types/types";
 import { useNavigate } from "react-router";
 import OfferItem from "./OfferItem";
+import { useTranslation } from "react-i18next";
 
 const offersMockUp: ExtendOffer[] = [
   {
@@ -63,6 +64,7 @@ const offersMockUp: ExtendOffer[] = [
   },
 ];
 const MyOffersSection = () => {
+  const { t } = useTranslation();
   const [seeOnlyActual, setSeeOnlyActual] = useState(false);
   const navigate = useNavigate();
 
@@ -72,18 +74,18 @@ const MyOffersSection = () => {
         sx={{ display: "flex", justifyContent: "space-between", m: 1, mb: 4 }}
       >
         <Typography variant="h3" component="h1" sx={{ color: "primary" }}>
-          Twoje Oferty
+          { t("seller.myoffers") }
         </Typography>
         <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
           <Button variant="contained" onClick={() => navigate("/newoffer")}>
-            Dodaj ofertę
+            { t("seller.addOffer") }
           </Button>
           <Button
             variant="outlined"
             sx={{ maxWidth: 200 }}
             onClick={() => navigate("/reports")}
           >
-            Zobacz raporty sprzedaży
+            { t("seller.seeReports") }
           </Button>
         </Box>
         <FormControlLabel
@@ -93,7 +95,7 @@ const MyOffersSection = () => {
               fontFamily: "Book Antiqua, Arial",
             },
           }}
-          label="Zobacz tylko aktualne oferty"
+          label={ t("seller.onlyActualOffers") }
           control={
             <Checkbox
               checked={seeOnlyActual}
@@ -111,7 +113,7 @@ const MyOffersSection = () => {
           renderInput={(params) => (
             <TextField
               {...params}
-              label="Wyszukaj..."
+              label={ t("search") + "..." }
               InputProps={{
                 ...params.InputProps,
                 type: "search",

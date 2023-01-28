@@ -1,5 +1,6 @@
 import { Box, Typography, Button } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { deliveryTypes } from "../../static/mockUpData";
 import { ExtendOffer } from "../../types/types";
 
@@ -10,6 +11,8 @@ interface OfferMainDetailsProps {
 const OfferMainDetails = ({
   offer
 }: OfferMainDetailsProps) => {
+  const { t } = useTranslation();
+  
   return (
     <Box sx={{ width: "100%", flexDirection: "column", display: "flex", mt: 2 }}>
       <Typography variant="h4">{offer.name}</Typography>
@@ -21,7 +24,7 @@ const OfferMainDetails = ({
             flexDirection: "column",
           }}
         >
-          <Typography variant="h6">Metody Dostawy:</Typography>
+          <Typography variant="h6">{ t("offer.deliveryMethods") }:</Typography>
           <Box >{deliveryTypes.map(({ id, name, price }) => (
               <Typography key={id}>
                 {`${name} - ${price} zł`}
@@ -33,7 +36,7 @@ const OfferMainDetails = ({
           variant="contained"
           sx={{
             width: "100%"
-          }}>Dodaj do koszyka</Button>
+          }}>{ t("offer.addToBasket") }</Button>
     </Box>
   );
 };

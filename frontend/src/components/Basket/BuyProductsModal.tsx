@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { ExtendOffer } from "../../types/types";
 import { useFormik } from "formik";
+import { useTranslation } from "react-i18next";
 
 interface BuyProductsModalProps {
   open: boolean;
@@ -21,6 +22,8 @@ const BuyProductsModal = ({
   onClose,
   selectedProducts,
 }: BuyProductsModalProps) => {
+  const { t } = useTranslation();
+
   const formik = useFormik({
     initialValues: {
       street: "",
@@ -39,17 +42,17 @@ const BuyProductsModal = ({
   return (
     <Dialog open={open} onClose={onClose}>
       <form onSubmit={formik.handleSubmit}>
-        <DialogTitle>Zablokuj użytkownika</DialogTitle>
+        <DialogTitle>{ t("basket.buyProducts") }</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Podaj adres dostawy
+            { t("basket.deliveryAdressText") }
           </DialogContentText>
           <TextField
             autoFocus
             required
             margin="dense"
             id="street"
-            label="Ulica i numer"
+            label={ t("basket.streetAndNumber") }
             fullWidth
             variant="standard"
             onChange={formik.handleChange}
@@ -60,7 +63,7 @@ const BuyProductsModal = ({
             required
             margin="dense"
             id="city"
-            label="Miasto"
+            label={ t("basket.city") }
             fullWidth
             variant="standard"
             onChange={formik.handleChange}
@@ -71,7 +74,7 @@ const BuyProductsModal = ({
             required
             margin="dense"
             id="postalCode"
-            label="Kod pocztowy"
+            label={ t("basket.postalCode") }
             fullWidth
             variant="standard"
             onChange={formik.handleChange}
@@ -80,10 +83,10 @@ const BuyProductsModal = ({
         </DialogContent>
         <DialogActions sx={{ p: 3 }}>
           <Button onClick={onClose} variant="outlined">
-            Anuluj
+          { t("cancel") }
           </Button>
           <Button type="submit" variant="contained">
-            Kup
+          { t("basket.buy") }
           </Button>
         </DialogActions>
       </form>

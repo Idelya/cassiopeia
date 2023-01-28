@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { deliveryTypes } from "../../static/mockUpData";
 import { ExtendOffer } from "../../types/types";
 
@@ -19,9 +20,11 @@ const OfferMainDetailsEdit = ({
   offer,
   onChange,
 }: OfferMainDetailsEditProps) => {
+  const { t } = useTranslation();
+  
   return (
     <Box sx={{ width: "100%" }}>
-      <Typography variant="h6">Nazwa produktu:</Typography>
+      <Typography variant="h6">{ t("offer.productName") }:</Typography>
       <TextField
         required
         margin="dense"
@@ -40,7 +43,7 @@ const OfferMainDetailsEdit = ({
             flexDirection: "column",
           }}
         >
-          <Typography variant="h6">Metody Dostawy</Typography>
+          <Typography variant="h6">{ t("offer.deliveryMethods") }</Typography>
           <Select
             sx={{ mt: 1, mb: 0.5 }}
             id="deliveryTypes"
@@ -72,7 +75,7 @@ const OfferMainDetailsEdit = ({
             flexDirection: "column",
           }}
         >
-          <Typography variant="h6">Cena</Typography>
+          <Typography variant="h6">{ t("price") }</Typography>
           <TextField
             required
             margin="dense"

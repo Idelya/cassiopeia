@@ -1,6 +1,7 @@
 import React from "react";
-import { Box, Container, Drawer, IconButton, useTheme } from "@mui/material";
+import { Box, Button, Container, Drawer, IconButton, useTheme } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
+import i18n from "../../i18n";
 
 interface SidebarProps {
   children: React.ReactNode;
@@ -8,6 +9,11 @@ interface SidebarProps {
 
 const Sidebar = ({ children }: SidebarProps) => {
   const theme = useTheme();
+
+  const lngs = {
+    en: { nativeName: 'English' },
+    pl: { nativeName: 'Polski' }
+  };
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -31,7 +37,15 @@ const Sidebar = ({ children }: SidebarProps) => {
         >
           <StarIcon />
         </IconButton>
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
+          {Object.keys(lngs).map((lng) => (
+            <Button variant="contained" onClick={() => i18n.changeLanguage(lng)}>
+              {lng === "en" ? lngs.en.nativeName : lngs.pl.nativeName}
+            </Button>
+          ))}
+        </Box>
       </Drawer>
+      
       <Container maxWidth="xl" sx={{ flexGrow: 1, overflowY: "auto" }}>
         {children}
       </Container>
