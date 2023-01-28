@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "UserServiceAPI": {
+    "ShoppingServiceAPI": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

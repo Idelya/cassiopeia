@@ -3,6 +3,7 @@ using System;
 using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Data.Migrations
 {
     [DbContext(typeof(ShoppingContext))]
-    partial class ShoppingContextModelSnapshot : ModelSnapshot
+    [Migration("20230128140232_add_address")]
+    partial class add_address
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,12 +60,12 @@ namespace Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ID"));
 
+                    b.Property<double>("Koszt")
+                        .HasColumnType("double precision");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("double precision");
 
                     b.HasKey("ID");
 
@@ -169,12 +171,12 @@ namespace Data.Migrations
                     b.Property<int>("DeliveryTypesID")
                         .HasColumnType("integer");
 
-                    b.Property<int>("OffersID")
+                    b.Property<int>("OffersWithDeliveryPossibilityID")
                         .HasColumnType("integer");
 
-                    b.HasKey("DeliveryTypesID", "OffersID");
+                    b.HasKey("DeliveryTypesID", "OffersWithDeliveryPossibilityID");
 
-                    b.HasIndex("OffersID");
+                    b.HasIndex("OffersWithDeliveryPossibilityID");
 
                     b.ToTable("DeliveryOffer");
                 });
@@ -227,7 +229,7 @@ namespace Data.Migrations
 
                     b.HasOne("Data.Models.Offer", null)
                         .WithMany()
-                        .HasForeignKey("OffersID")
+                        .HasForeignKey("OffersWithDeliveryPossibilityID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

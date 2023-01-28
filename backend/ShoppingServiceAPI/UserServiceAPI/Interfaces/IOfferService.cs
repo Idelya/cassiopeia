@@ -7,6 +7,6 @@ namespace ShoppingServiceAPI.Interfaces
         IEnumerable<OfferResponse> GetOffers();
         IEnumerable<OfferResponse> GetOffersPublishByUser(string id);
         OfferResponse GetOffer(int id);
-        OfferResponse EditOffers(OfferEditRequest offer);
+        Task<bool> EditOffers(OfferEditRequest offer);
     }
 }

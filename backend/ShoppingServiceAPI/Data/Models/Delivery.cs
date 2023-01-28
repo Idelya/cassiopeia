@@ -4,10 +4,10 @@
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public double Koszt { get; set; }
+        public double Price { get; set; }
 
-        public virtual  ICollection<Offer> OffersWithDeliveryPossibility { get; set; }
+        public ICollection<Offer> Offers { get; set; }
 
-        public virtual  ICollection<Purchase> Purchases { get; set; }
+        public virtual ICollection<Purchase> Purchases { get; set; }
     }
 }

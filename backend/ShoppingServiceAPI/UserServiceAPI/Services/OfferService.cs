@@ -1,33 +1,61 @@
-﻿using ShoppingServiceAPI.DTOs;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using ShoppingServiceAPI.DTOs;
 using ShoppingServiceAPI.Interfaces;
 
 namespace ShoppingServiceAPI.Services
 {
     public class OfferService : Service, IOfferService
     {
-        public OfferService(IServiceProvider serviceProvider) : base(serviceProvider)
+        private readonly IMapper _mapper;
+
+        public OfferService(IServiceProvider serviceProvider, IMapper mapper) : base(serviceProvider)
         {
+            _mapper = mapper;
         }
 
-        public OfferResponse EditOffers(OfferEditRequest request)
+        public async Task<bool> EditOffers(OfferEditRequest request)
         {
-            //var offer = Context.Offer.FirstOrDefault(x => x.ID == request.Id).Offer;
-            return null;
+            var offer = Context.Offer.FirstOrDefault(x => x.ID == request.Id);
+            if (offer == null)
+                return false;
+
+            if (request.Price != null)
+                offer.Price = (double)request.Price;
+
+            if (request.Description != null)
+                offer.Description = request.Description;
+
+            if (request.Name != null)
+                offer.Name = request.Name;
+
+            Context.Offer.Update(offer);
+
+            if (await Context.SaveChangesAsync() == 0)
+                return false;
+            return true;
         }
 
         public OfferResponse GetOffer(int id)
         {
-            throw new NotImplementedException();
+            return _mapper.Map<OfferResponse>(Context.Offer.Where(x => x.ID == id).Include(x => x.DeliveryTypes).FirstOrDefault());
         }
 
         public IEnumerable<OfferResponse> GetOffers()
         {
-            throw new NotImplementedException();
+            return Context.Offer
+                 .Include(x => x.DeliveryTypes)
+                .Select(x => _mapper.Map<OfferResponse>(x))
+                .ToList();
         }
 
         public IEnumerable<OfferResponse> GetOffersPublishByUser(string id)
         {
-            throw new NotImplementedException();
+            return Context.Offer
+                .Where(x => x.SellerID == id)
+                .Include(x => x.DeliveryTypes)
+                .Select(x => _mapper.Map<OfferResponse>(x))
+                .ToList();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Data.Models;
 using ShoppingServiceAPI.DTOs;
 
 namespace ShoppingServiceAPI
@@ -7,9 +8,8 @@ namespace ShoppingServiceAPI
     {
         public MapperProfile()
         {
-            //CreateMap<User, UserResponse>()
-            //    .ForMember(e => e.Fullname, opt => opt.MapFrom(v => $"{v.Firstname} {v.Lastname}"))
-            //    .ReverseMap();
+            CreateMap<Offer, OfferResponse>().ReverseMap();
+            CreateMap<Delivery, DeliveryResponse>().ReverseMap();   
         }
     }
 }

@@ -9,7 +9,7 @@
         public int DisplayAmount { get; set; }
         public string SellerID { get; set; }
 
-        public virtual ICollection<Delivery> DeliveryTypes { get; set; }
+        public ICollection<Delivery> DeliveryTypes { get; set; }
         
         public virtual Purchase Purchase { get; set; }
     }

@@ -1,6 +1,8 @@
 ﻿using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using ShoppingServiceAPI.Interfaces;
+using ShoppingServiceAPI.Services;
 
 namespace ShoppingServiceAPI
 {
@@ -21,6 +23,8 @@ namespace ShoppingServiceAPI
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers();
+            services.AddTransient<IOfferService, OfferService>();  
+
 
             services.AddCors(options =>
             {
@@ -59,7 +63,7 @@ namespace ShoppingServiceAPI
             });
 
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Funtest v1"));
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Shopping Service v1"));
         }
     }
 }

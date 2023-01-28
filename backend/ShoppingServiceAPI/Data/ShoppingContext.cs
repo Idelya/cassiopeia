@@ -7,6 +7,7 @@ namespace Data
     {
         public DbSet<Purchase> Purchase { get; set; }
         public DbSet<Offer> Offer { get; set; }
+        public DbSet<Address> Address { get; set; }
 
         public ShoppingContext(DbContextOptions<ShoppingContext> options) : base(options) { }
 

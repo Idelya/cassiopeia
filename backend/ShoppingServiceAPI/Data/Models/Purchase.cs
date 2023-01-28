@@ -15,5 +15,8 @@ namespace Data.Models
         public Delivery Delivery { get; set; }  
 
         public int BuyerID { get; set; }
+
+        public int OrderID { get; set; }
+        public virtual Order Order { get; set; }
     }
 }
