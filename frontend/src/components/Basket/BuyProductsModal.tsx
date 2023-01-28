@@ -8,18 +8,18 @@ import {
   DialogTitle,
   TextField,
 } from "@mui/material";
-import { User } from "../../types/types";
+import { ExtendOffer } from "../../types/types";
 import { useFormik } from "formik";
 
 interface BuyProductsModalProps {
   open: boolean;
   onClose: () => void;
-  blockedUser: User | null;
+  selectedProducts: ExtendOffer[] | null;
 }
 const BuyProductsModal = ({
   open,
   onClose,
-  blockedUser,
+  selectedProducts,
 }: BuyProductsModalProps) => {
   const formik = useFormik({
     initialValues: {
