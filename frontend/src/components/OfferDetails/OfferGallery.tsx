@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Box, Typography } from "@mui/material";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Carousel from "react-material-ui-carousel";
 import { photos } from "../../static/mockUpData";
 import { ExtendOffer } from "../../types/types";
@@ -16,13 +17,14 @@ const StyledImg = styled("img")({
   objectFit: "contain",
 });
 const OfferGallery = ({ offer }: OfferGalleryEditProps) => {
+  const { t } = useTranslation();
   const [currentPhoto, setCurrentPhoto] = useState<undefined | number>(0);
 
   return (
     <Box>
       <Box sx={{ width: "600px", height: "300px" }}>
         {currentPhoto === undefined ? (
-          <Typography>Brak zdjęć w galerii</Typography>
+          <Typography>{ t("offer.missingPictures") }</Typography>
         ) : (
           <Carousel
             autoPlay={false}

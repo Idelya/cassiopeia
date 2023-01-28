@@ -8,6 +8,7 @@ import {
   TextField
 } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { ReportDefinition } from "../../types/types";
 
 interface ReportItemProps {
@@ -15,6 +16,7 @@ interface ReportItemProps {
 }
 
 const ReportItem = ({ reportDefinition } : ReportItemProps) => {
+  const { t } = useTranslation();
 
   return (
     <Card sx={{ height: 250, width: 1000, display: "flex", p: 1, m: 3 }}>
@@ -39,10 +41,9 @@ const ReportItem = ({ reportDefinition } : ReportItemProps) => {
             <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2, m: 2 }}>
               <TextField
                 id="date"
-                label="Początek"
+                label={ t("start") }
                 type="date"
                 defaultValue="2023-11-06"
-                // className={classes.textField}
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -50,34 +51,18 @@ const ReportItem = ({ reportDefinition } : ReportItemProps) => {
 
               <TextField
                 id="date"
-                label="Koniec"
+                label={ t("end") }
                 type="date"
                 defaultValue="2023-11-07"
-                // className={classes.textField}
                 InputLabelProps={{
                   shrink: true,
                 }}
               />
             </Box>
-            <Button variant="contained">Generuj</Button>
+            <Button variant="contained">{ t("generate") }</Button>
 
           </Box>
         </Box>
-        {/* <Box sx={{ p: 1, pl: 0, pr: 0 }}>
-          <Typography
-            variant="body2"
-            sx={{
-              maxHeight: 200,
-              textOverflow: "ellipsis",
-              overflow: "hidden",
-              display: "-webkit-box",
-              WebkitLineClamp: 6,
-              WebkitBoxOrient: "vertical",
-            }}
-          >
-            {reportDefinition.description}
-          </Typography>
-        </Box> */}
       </CardContent>
     </Card>
   );

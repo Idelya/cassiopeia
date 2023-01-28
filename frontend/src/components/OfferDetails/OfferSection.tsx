@@ -6,9 +6,10 @@ import OfferDescription from "./OfferDescription";
 import OfferGallery from "./OfferGallery";
 import OfferMainDetails from "./OfferMainDetails";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import { useTranslation } from "react-i18next";
 
 const OfferSection = () => {
-
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [offer] = useState<ExtendOffer>({
     id: -1,
@@ -23,8 +24,8 @@ const OfferSection = () => {
 
   return  <Grid container spacing={2} sx={{ width: "100%", p: 7 }}>
   <Grid item xs={12} sx={{ display: "flex", justifyContent: "right" }}>
-    <Button variant="contained" sx={{mr: 3}} onClick={() => navigate("/offers")}>Wróć do wyszukiwarki</Button>
-    <Button startIcon={<ShoppingBasketIcon/>} variant="outlined" onClick={() => navigate("/basket")}>Koszyk</Button>
+    <Button variant="contained" sx={{mr: 3}} onClick={() => navigate("/offers")}>{ t("basket.backToSearch") }</Button>
+    <Button startIcon={<ShoppingBasketIcon/>} variant="outlined" onClick={() => navigate("/basket")}>{ t("basket") }</Button>
   </Grid>
     <Grid item xs={6} sx={{ display: "flex", justifyContent: "left" }}>
       <OfferGallery

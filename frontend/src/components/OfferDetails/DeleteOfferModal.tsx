@@ -7,6 +7,7 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 interface DeleteOfferModalProps {
   open: boolean;
@@ -18,20 +19,21 @@ const DeleteOfferModal = ({
   onClose,
   offerId,
 }: DeleteOfferModalProps) => {
-
+  const { t } = useTranslation();
+  
   return (
     <Dialog open={open} onClose={onClose}>
-        <DialogTitle>Czy na pewno chcesz usunąć tę ofertę?</DialogTitle>
+        <DialogTitle>{ t("offer.deleteConfirm") }</DialogTitle>
         <DialogContent>
           <DialogContentText>
           </DialogContentText>
         </DialogContent>
         <DialogActions sx={{ p: 3 }}>
           <Button onClick={onClose} variant="outlined">
-            Anuluj
+          { t("cancel") }
           </Button>
           <Button type="submit" variant="contained">
-            Usuń
+          { t("delete") }
           </Button>
         </DialogActions>
     </Dialog>

@@ -1,6 +1,9 @@
 import React from "react";
 import Box from "@mui/material/Box";
+import { useTranslation } from "react-i18next";
 const LoginPage = () => {
+  const { t } = useTranslation();
+  
   return (
     <Box
       sx={{
@@ -11,7 +14,7 @@ const LoginPage = () => {
         maring: "auto",
       }}
     >
-      Twoje oferty
+      {t("offer.myoffers")}
     </Box>
   );
 };

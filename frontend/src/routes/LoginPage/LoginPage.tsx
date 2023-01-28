@@ -1,11 +1,17 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { useTheme } from "@mui/material";
+import { Button, useTheme } from "@mui/material";
 import LoginForm from "../../components/Login/LoginForm";
+import i18n from "../../i18n";
 const LoginPage = () => {
   const theme = useTheme();
 
+  const lngs = {
+    en: { nativeName: 'English' },
+    pl: { nativeName: 'Polski' }
+  };
+  
   return (
     <Box
       sx={{
@@ -21,6 +27,14 @@ const LoginPage = () => {
       >
         Cassiopeia
       </Typography>
+
+      <Box sx={{ display: "inline" }}>
+          {Object.keys(lngs).map((lng) => (
+            <Button variant="contained" onClick={() => i18n.changeLanguage(lng)}>
+              {lng === "en" ? lngs.en.nativeName : lngs.pl.nativeName}
+            </Button>
+          ))}
+        </Box>
       <LoginForm />
     </Box>
   );

@@ -4,7 +4,9 @@ import Typography from "@mui/material/Typography";
 import { Button, Paper, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router";
+import { useTranslation } from "react-i18next";
 const LoginForm = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -18,6 +20,8 @@ const LoginForm = () => {
     },
   });
 
+ 
+
   return (
     <Box
       sx={{
@@ -25,6 +29,7 @@ const LoginForm = () => {
         justifyContent: "center",
       }}
     >
+      
       <form onSubmit={formik.handleSubmit}>
         <Paper
           sx={{
@@ -38,12 +43,12 @@ const LoginForm = () => {
           }}
         >
           <Typography variant="h4" sx={{ m: 2 }} component="h2">
-            Zaloguj się
+          { t("login") }
           </Typography>
           <TextField
             required
             id="username"
-            label="Nazwa użytkownika"
+            label={ t("admin.userList.username") }
             sx={{ m: 2 }}
             onChange={formik.handleChange}
             value={formik.values.username}
@@ -51,14 +56,14 @@ const LoginForm = () => {
           <TextField
             required
             id="password"
-            label="Hasło"
+            label={ t("password") }
             type="password"
             sx={{ m: 2 }}
             onChange={formik.handleChange}
             value={formik.values.password}
           />
           <Button type="submit" sx={{ m: 2 }} variant="contained">
-            Zaloguj
+            { t("login") }
           </Button>
         </Paper>
       </form>

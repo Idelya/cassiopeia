@@ -4,8 +4,11 @@ import { Box } from "@mui/material";
 import UsersList from "./UsersList";
 import { User } from "../../types/types";
 import BlockUserModal from "./BlockUserModal";
+import { useTranslation } from "react-i18next";
 
 const BanUserSection = () => {
+  const { t } = useTranslation();
+  
   const [blockedUser, setBlockedUser] = useState<null | User>(null);
   const onUnblockUser = (user: User) => {
     //TODO: połączyć z backendem
@@ -15,7 +18,7 @@ const BanUserSection = () => {
     <Box sx={{ display: "flex", flexDirection: "column", m: 1 }}>
       <Box sx={{ display: "flex", justifyContent: "space-between", m: 1 }}>
         <Typography variant="h3" component="h1" sx={{ color: "primary" }}>
-          Użytkownicy
+          {t("admin.title")}
         </Typography>
       </Box>
       <UsersList onBlock={setBlockedUser} onUnblock={onUnblockUser} />
