@@ -1,9 +1,13 @@
 import { Box, Button, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { ExtendOffer } from "../../types/types";
 import BasketList from "./BasketList";
+import BuyProductsModal from "./BuyProductsModal";
 
 const BasketSection = () => {
+  const [selectedProducts, setSelectedProducts] = useState<null | ExtendOffer[]>(null);
+
     const navigate = useNavigate();
 
   return (
@@ -19,7 +23,12 @@ const BasketSection = () => {
         <Typography variant="h4">{`Suma: ${44.32} zł`}</Typography>
         <Button color="error">Wyszyść koszyk</Button>
       </Box>
-        <Button variant="contained" size="large">Kontynuuj</Button>
+      <Button variant="contained" size="large" onClick={() => setSelectedProducts([])}>Kontynuuj</Button>
+      <BuyProductsModal
+        open={!!selectedProducts}
+        selectedProducts={selectedProducts}
+        onClose={() => setSelectedProducts(null)}
+      />
     </Box>
   );
 };
