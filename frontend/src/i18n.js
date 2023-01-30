@@ -58,7 +58,8 @@ i18n
             streetAndNumber: "Street and number",
             city: "City",
             postalCode: "Postal code",
-            buy: "Buy"
+            buy: "Buy",
+            continue: "Continue"
           },
           offer: {
             deleteConfirm: "Do you really want to delete this offer?",
@@ -128,7 +129,8 @@ i18n
             streetAndNumber: "Ulica i numer",
             city: "Miasto",
             postalCode: "Kod pocztowy",
-            buy: "Kup"
+            buy: "Kup",
+            continue: "Kontynuuj"
           },
           offer: {
             deleteConfirm: "Czy na pewno chcesz usunąć tę ofertę?",
