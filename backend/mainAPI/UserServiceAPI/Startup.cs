@@ -29,8 +29,8 @@ namespace mainAPI
             services
                .AddIdentity<User, IdentityRole>(opt =>
                {
-                   //opt.Lockout.AllowedForNewUsers = false;
-                   //opt.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%^&*()-._@+";
+                   opt.Lockout.AllowedForNewUsers = false;
+                   opt.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%^&*()-._@+";
                })
                .AddSignInManager<SignInManager<User>>()
                .AddEntityFrameworkStores<AuthContext>()
