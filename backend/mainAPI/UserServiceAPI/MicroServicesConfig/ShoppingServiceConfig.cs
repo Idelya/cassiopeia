@@ -6,6 +6,8 @@
         public static string OFFER_CONTROLLER_NAME = "Offer";
         public static string GET_OFFERS = "all";
         public static string EDIT_OFFER = "edit";
+        public static string GET_DELIVERIES = "delivery";
+
 
         public static string ORDER_CONTROLLER_NAME = "Order";
         public static string BUY = "buy";

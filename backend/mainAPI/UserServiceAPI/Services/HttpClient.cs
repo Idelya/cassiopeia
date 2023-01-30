@@ -23,11 +23,14 @@ namespace MainAPI.Services
                 var requestContent = new StringContent(body, Encoding.UTF8, "application/json");
                 response = client.PostAsync(url, requestContent).Result;
             }
+            else if (httpMethod == RequestMethod.Delete)
+            {
+                response = client.DeleteAsync(url).Result;
+            }
             else
             {
                 response = client.SendAsync(requestMessage).Result;
             }
-
             return response;
         }
     }

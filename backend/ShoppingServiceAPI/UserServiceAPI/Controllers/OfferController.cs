@@ -16,7 +16,7 @@ namespace ShoppingServiceAPI.Controllers
         }
 
         [HttpGet("all")]
-        public ActionResult<IEnumerable<OfferResponse>> GetOffer()
+        public ActionResult<IEnumerable<OfferResponse>> GetOffers()
         {
             return Ok(offerService.GetOffers());
         }
@@ -34,6 +34,35 @@ namespace ShoppingServiceAPI.Controllers
             if (result)
                 return Ok();
             else return Conflict();
+        }
+
+        [HttpPost("create")]
+        public async Task<ActionResult<IEnumerable<OfferResponse>>> CreateOffer([FromBody] CreateOfferRequest request)
+        {
+            var result = await offerService.AddOffer(request);
+            if (result)
+                return Ok();
+            else return Conflict();
+        }
+
+        [HttpGet("{id}")]
+        public ActionResult<OfferResponse> GetOffer([FromRoute] int id)
+        {
+            return Ok(offerService.GetOffer(id));
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult DeleteOffer([FromRoute] int id)
+        {
+            var t = Ok(offerService.DeleteOffer(id));
+            return t;
+        }
+
+
+        [HttpGet("delivery")]
+        public ActionResult<IEnumerable<DeliveryResponse>> GetDeliveries()
+        {
+            return Ok(offerService.GetDeliveries());
         }
     }
 }
