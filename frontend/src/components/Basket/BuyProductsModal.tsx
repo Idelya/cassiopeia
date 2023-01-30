@@ -39,7 +39,7 @@ const BuyProductsModal = ({
           city: values.city,
           postalCode: values.postalCode
         },
-        purchases: selectedProducts?.map<any>(p => { offerId: p.id; deliveryId: p.chosenDelivery })
+        purchases: selectedProducts?.map<any>(p => ({ offerId: p.id, deliveryId: p.chosenDelivery }))
       });
 
       onClose();
