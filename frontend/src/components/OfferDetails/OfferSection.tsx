@@ -15,7 +15,7 @@ const OfferSection = () => {
     id: -1,
     name: "Nazwa produktu",
     price: 10,
-    displaysAmount: 1,
+    displayAmount: 1,
     deliveryTypes: [],
     description: "",
     mainImage: "",

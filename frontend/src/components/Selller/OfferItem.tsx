@@ -57,7 +57,7 @@ const OfferItem = ({ offer }: OfferItemProps) => {
           }}
         >
           <Typography variant="body2" sx={{ color: theme.palette.grey[700] }}>
-            { t("views") }: {offer.displaysAmount}
+            { t("views") }: {offer.displayAmount}
           </Typography>
           <Typography variant="h5">{offer.price} zł</Typography>
         </Box>

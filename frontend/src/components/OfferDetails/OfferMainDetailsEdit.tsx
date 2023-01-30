@@ -52,7 +52,7 @@ const OfferMainDetailsEdit = ({
             onChange={(e) =>
               onChange({
                 ...offer,
-                deliveryTypes: (typeof e.target.value === "string"
+                newDeliveryTypes: (typeof e.target.value === "string"
                   ? e.target.value.split(",")
                   : e.target.value
                 ).map((elem) => Number(elem)),
@@ -60,9 +60,9 @@ const OfferMainDetailsEdit = ({
             }
             input={<OutlinedInput />}
           >
-            {deliveryTypes.map(({ id, name, price }) => (
-              <MenuItem key={name} value={id}>
-                {`${name} - ${price} zł`}
+            {deliveryTypes.map((delivery) => (
+              <MenuItem key={delivery.name} value={delivery.id}>
+                {`${delivery.name} - ${delivery.price} zł`}
               </MenuItem>
             ))}
           </Select>

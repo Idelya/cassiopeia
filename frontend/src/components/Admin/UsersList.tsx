@@ -6,6 +6,7 @@ import LockOpenIcon from "@mui/icons-material/LockOpen";
 import React from "react";
 import { User } from "../../types/types";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
 
 interface UsersListProps {
   onBlock: (user: User) => void;
@@ -15,6 +16,10 @@ interface UsersListProps {
 
 const UsersList = ({ onBlock, onUnblock }: UsersListProps) => {
   const { t } = useTranslation();
+
+  var users: User[] = [];
+  axios.get("http://localhost:5084/api/user/users")
+        .then((response) => users = response.data)
 
   return (
     <MaterialReactTable
@@ -27,36 +32,7 @@ const UsersList = ({ onBlock, onUnblock }: UsersListProps) => {
           accessorKey: "email",
         },
       ]}
-      data={[
-        {
-          id: 1,
-          username: "Baran",
-          fullname: "Jan Kowalski",
-          email: "janKowalski@gmaiil.com",
-          ban: true,
-        },
-        {
-          id: 2,
-          username: "Baran",
-          fullname: "Jan Nowak",
-          email: "jannowak@gmaiil.com",
-          ban: false,
-        },
-        {
-          id: 1,
-          username: "Baran",
-          fullname: "Jan Poleś",
-          email: "poljan@gmaiil.com",
-          ban: true,
-        },
-        {
-          id: 2,
-          username: "Baran",
-          fullname: "Jan Worek",
-          email: "dsadasf@gmaiil.com",
-          ban: false,
-        },
-      ]}
+      data={users}
       enableColumnActions
       enableColumnFilters
       enableRowActions

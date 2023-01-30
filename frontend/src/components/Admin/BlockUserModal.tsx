@@ -11,6 +11,7 @@ import {
 import { User } from "../../types/types";
 import { useFormik } from "formik";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
 
 interface BlockUserModalProps {
   open: boolean;
@@ -28,15 +29,10 @@ const BlockUserModal = ({
     initialValues: {
       blockReason: "",
     },
-    onSubmit: (values) => {
-      //TODO: tutaj logowanie
-      console.log(
-        "Zablokowano użytkownika " +
-          blockedUser?.fullname +
-          " z powodu " +
-          values.blockReason
-      );
-      onClose();
+    onSubmit: async (values) => {
+
+      await axios.post("http://localhost:5084/api/user/ban", { userid: blockedUser?.id, reason: values.blockReason });
+      onClose()
     },
   });
 

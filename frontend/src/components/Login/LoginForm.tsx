@@ -5,6 +5,7 @@ import { Button, Paper, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
 const LoginForm = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -13,8 +14,11 @@ const LoginForm = () => {
       username: "",
       password: "",
     },
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       //TODO: tutaj logowanie
+      await axios.post("http://localhost:5084/api/auth/login", { username: values.username, password: values.password })
+        .then((response) => console.log(response))//TODO: navigate
+
       console.log(values);
       navigate("/");
     },

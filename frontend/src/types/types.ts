@@ -1,4 +1,5 @@
 export type User = {
+  id: number;
   username: string;
   fullname: string;
   email: string;
@@ -15,14 +16,17 @@ export type ExtendOffer = {
   name: string;
   description: string;
   price: number;
-  displaysAmount: number;
-  deliveryTypes: number[];
+  displayAmount: number;
+  deliveryTypes: DeliveryType[];
+  newDeliveryTypes?: number[];
+  chosenDelivery?: number;
   status?: DeliveryStatus;
   mainImage?: string;
   photos?: Photo[];
 };
 
 export type DeliveryType = {
+  id: number;
   price: number;
   name: string;
 };

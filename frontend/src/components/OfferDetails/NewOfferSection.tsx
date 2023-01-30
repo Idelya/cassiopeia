@@ -9,7 +9,17 @@ import OfferGalleryEdit from "./OfferGalleryEdit";
 import OfferMainDetailsEdit from "./OfferMainDetailsEdit";
 import OfferDescriptionEdit from "./OfferDescriptionEdit";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
 
+const OnSaveOffer = async (offer: ExtendOffer) => {
+  await axios.post("http://localhost:5084/api/offer/create", 
+  { 
+    name: offer.name,
+    description: offer.description,
+    price: offer.price,
+    deliveryTypeIds: offer.newDeliveryTypes
+  })
+}
 
 const NewOfferSection = () => {
   const { t } = useTranslation();
@@ -18,7 +28,7 @@ const NewOfferSection = () => {
     id: -1,
     name: "",
     price: 10,
-    displaysAmount: 1,
+    displayAmount: 1,
     deliveryTypes: [],
     description: "",
     mainImage: "",
@@ -46,7 +56,7 @@ const NewOfferSection = () => {
         />
       </Grid>
       <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
-        <Button variant="contained" sx={{ m: 2 }}>
+        <Button variant="contained" sx={{ m: 2 }} onClick={() => OnSaveOffer(newOffer)}>
           { t("add") }
         </Button>
         <Button

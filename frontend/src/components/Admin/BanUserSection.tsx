@@ -5,14 +5,14 @@ import UsersList from "./UsersList";
 import { User } from "../../types/types";
 import BlockUserModal from "./BlockUserModal";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
 
 const BanUserSection = () => {
   const { t } = useTranslation();
   
   const [blockedUser, setBlockedUser] = useState<null | User>(null);
-  const onUnblockUser = (user: User) => {
-    //TODO: połączyć z backendem
-    console.log("odblokowano uzytkownika " + user.fullname);
+  const onUnblockUser = async (user: User) => {
+    await axios.post("http://localhost:5084/api/user/unban", { userid: user.id });
   };
   return (
     <Box sx={{ display: "flex", flexDirection: "column", m: 1 }}>

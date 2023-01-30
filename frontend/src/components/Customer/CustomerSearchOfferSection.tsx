@@ -11,60 +11,16 @@ import { DeliveryStatus, ExtendOffer } from "../../types/types";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
 
-const offersMockUp: ExtendOffer[] = [
-  {
-    id: 1,
-    name: "Nazwa Produktu",
-    price: 40.38,
-    status: DeliveryStatus.SEND,
-    displaysAmount: 30,
-    deliveryTypes: [],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
-  },
-  {
-    id: 2,
-    name: "Nazwa Produktu 2",
-    price: 40.38,
-    displaysAmount: 12,
-    deliveryTypes: [],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
-  },
-  {
-    id: 3,
-    name: "Nazwa Produktu 3",
-    price: 40.38,
-    status: DeliveryStatus.SOLD,
-    displaysAmount: 40,
-    deliveryTypes: [],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
-  },
-  {
-    id: 4,
-    name: "Nazwa Produktu 4",
-    price: 40.38,
-    displaysAmount: 132,
-    deliveryTypes: [],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
-  },
-  {
-    id: 5,
-    name: "Nazwa Produktu 5",
-    price: 40.38,
-    displaysAmount: 132,
-    deliveryTypes: [],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
-  },
-];
 const CustomerSearchOfferSection = () => {
   const { t } = useTranslation();
 
   const navigate = useNavigate();
+
+  var offers: ExtendOffer[] = [];
+
+  axios.get("http://localhost:5084/api/offer/all").then((response) => offers = response.data);
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", m: 1 }}>
@@ -93,7 +49,7 @@ const CustomerSearchOfferSection = () => {
         <Button sx={{ml: 3, p: 2}} startIcon={<ShoppingBasketIcon/>} variant="outlined" onClick={() => navigate("/basket")}>{ t("basket.basket") }</Button>
       </Box>
       <OffersList>
-        {offersMockUp.map((offer) => (
+        {offers.map((offer) => (
           <OfferItem offer={offer} />
         ))}
       </OffersList>

@@ -7,18 +7,34 @@ import OfferGalleryEdit from "./OfferGalleryEdit";
 import OfferMainDetailsEdit from "./OfferMainDetailsEdit";
 import DeleteOfferModal from "./DeleteOfferModal";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
+
+const OnSaveOffer = async (offer: ExtendOffer) => {
+
+  await axios.post("http://localhost:5084/api/offer/edit", 
+  { 
+    id: offer.id, 
+    name: offer.name,
+    description: offer.description,
+    price: offer.price,
+    deliveryTypeIds: offer.newDeliveryTypes
+  })
+}
 
 const OfferSectionEdit = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   let { offerId } = useParams();
 
+  axios.get("http://localhost:5084/api/offer/"+offerId)
+    .then((response) => setOffer(response.data))
+
   const [deleteModal, setDeleteModal] = useState<boolean>(false);
   const [offer, setOffer] = useState<ExtendOffer>({
     id: -1,
     name: "",
     price: 10,
-    displaysAmount: 1,
+    displayAmount: 1,
     deliveryTypes: [],
     description: "",
     mainImage: "",
@@ -45,7 +61,7 @@ const OfferSectionEdit = () => {
       />
     </Grid>
     <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
-      <Button variant="contained" sx={{ m: 2 }}>
+      <Button variant="contained" sx={{ m: 2 }} onClick={() => OnSaveOffer(offer)}>
         { t("offer.saveChanges") }
       </Button>
       <Button

@@ -25,7 +25,7 @@ const OfferMainDetails = ({
           }}
         >
           <Typography variant="h6">{ t("offer.deliveryMethods") }:</Typography>
-          <Box >{deliveryTypes.map(({ id, name, price }) => (
+          <Box >{offer.deliveryTypes.map(({ id, name, price }) => (
               <Typography key={id}>
                 {`${name} - ${price} zł`}
               </Typography>

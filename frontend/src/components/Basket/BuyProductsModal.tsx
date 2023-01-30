@@ -11,6 +11,7 @@ import {
 import { ExtendOffer } from "../../types/types";
 import { useFormik } from "formik";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
 
 interface BuyProductsModalProps {
   open: boolean;
@@ -30,11 +31,17 @@ const BuyProductsModal = ({
       city: "",
       postalCode: ""
     },
-    onSubmit: (values) => {
-      //TODO: tutaj logowanie
-      console.log(
-        "Złożono zamówienie"
-      );
+    onSubmit: async (values) => {
+
+      await axios.post("http://localhost:5084/api/order/buy", {
+        adress: {
+          street: values.street,
+          city: values.city,
+          postalCode: values.postalCode
+        },
+        purchases: selectedProducts?.map<any>(p => { offerId: p.id; deliveryId: p.chosenDelivery })
+      });
+
       onClose();
     },
   });
