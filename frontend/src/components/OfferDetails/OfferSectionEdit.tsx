@@ -17,8 +17,9 @@ const OnSaveOffer = async (offer: ExtendOffer) => {
     description: offer.description,
     price: offer.price,
     deliveryTypeIds: offer.newDeliveryTypes,
-  });
-};
+    headers: { userToken: sessionStorage.getItem("token")}
+  })
+}
 
 const OfferSectionEdit = () => {
   const { t } = useTranslation();

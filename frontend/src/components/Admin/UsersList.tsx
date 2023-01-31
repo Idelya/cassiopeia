@@ -3,7 +3,7 @@ import MaterialReactTable from "material-react-table";
 import { MRT_Localization_PL } from "material-react-table/locales/pl";
 import BlockIcon from "@mui/icons-material/Block";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
-import React from "react";
+import React, { useState } from "react";
 import { User } from "../../types/types";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
@@ -17,9 +17,9 @@ interface UsersListProps {
 const UsersList = ({ onBlock, onUnblock }: UsersListProps) => {
   const { t } = useTranslation();
 
-  var users: User[] = [];
-  axios.get("http://localhost:5084/api/user/users")
-        .then((response) => users = response.data)
+  const [users, setUsers] = useState<User[]>([]);
+  axios.get("http://localhost:5084/api/user/users", { headers: { userToken: sessionStorage.getItem("token")} })
+        .then((response) => setUsers(response.data))
 
   return (
     <MaterialReactTable

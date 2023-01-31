@@ -8,12 +8,19 @@ import {
   DialogTitle,
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
 
 interface DeleteOfferModalProps {
   open: boolean;
   onClose: () => void;
   offerId: string;
 }
+
+const OnDeleteOffer = async (offerId: string) => {
+
+  await axios.delete("http://localhost:5084/api/offer/"+offerId, { headers: { userToken: sessionStorage.getItem("token")} });
+}
+
 const DeleteOfferModal = ({
   open,
   onClose,
@@ -32,7 +39,7 @@ const DeleteOfferModal = ({
           <Button onClick={onClose} variant="outlined">
           { t("cancel") }
           </Button>
-          <Button type="submit" variant="contained">
+          <Button type="submit" variant="contained" onClick={() => OnDeleteOffer(offerId)}>
           { t("delete") }
           </Button>
         </DialogActions>
