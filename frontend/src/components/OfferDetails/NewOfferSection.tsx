@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Grid
-} from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import { ExtendOffer } from "../../types/types";
 import { useNavigate } from "react-router";
 import OfferGalleryEdit from "./OfferGalleryEdit";
@@ -12,15 +9,14 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 
 const OnSaveOffer = async (offer: ExtendOffer) => {
-  await axios.post("http://localhost:5084/api/offer/create", 
-  { 
+  await axios.post("http://localhost:5084/api/offer/create", {
     name: offer.name,
     description: offer.description,
     price: offer.price,
     deliveryTypeIds: offer.newDeliveryTypes,
-    headers: { userToken: sessionStorage.getItem("token")}
-  })
-}
+    headers: { userToken: sessionStorage.getItem("token") },
+  });
+};
 
 const NewOfferSection = () => {
   const { t } = useTranslation();
@@ -57,15 +53,19 @@ const NewOfferSection = () => {
         />
       </Grid>
       <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
-        <Button variant="contained" sx={{ m: 2 }} onClick={() => OnSaveOffer(newOffer)}>
-          { t("add") }
+        <Button
+          variant="contained"
+          sx={{ m: 2 }}
+          onClick={() => OnSaveOffer(newOffer)}
+        >
+          {t("add")}
         </Button>
         <Button
           variant="outlined"
           sx={{ m: 2 }}
           onClick={() => navigate("/myoffers")}
         >
-          { t("back") }
+          {t("back")}
         </Button>
       </Grid>
     </Grid>
