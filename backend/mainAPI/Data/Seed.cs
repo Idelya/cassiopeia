@@ -52,7 +52,7 @@ namespace Data
                         UserName = adminEmail,
                         Email = adminEmail,
                     };
-                    
+
                     var resultA = await userManager.CreateAsync(admin, adminPassword);
                     if (resultA.Succeeded)
                     {
@@ -60,35 +60,85 @@ namespace Data
                     }
                 }
 
-                var seller = new User
+                var sellers = new List<User>
                 {
-                    Id = "2",
-                    Firstname = "Jan",
-                    Lastname = "Kwiatkowski",
-                    UserName = "kwiatkowski@workspace.com",
-                    Email = "kwiatkowski@workspace.com",
+                    new User
+                    {
+                        Id = "2",
+                        Firstname = "Jan",
+                        Lastname = "Kwiatkowski",
+                        UserName = "kwiatkowski@workspace.com",
+                        Email = "kwiatkowski@workspace.com",
+                    },
+                     new User
+                    {
+                        Id = "3",
+                        Firstname = "Adam",
+                        Lastname = "Stary",
+                        UserName = "adam@workspace.com",
+                        Email = "adam@workspace.com",
+                    },
+                      new User
+                    {
+                        Id = "4",
+                        Firstname = "Amelia",
+                        Lastname = "Firchild",
+                        UserName = "firchid@workspace.com",
+                        Email = "firchild@workspace.com",
+                    }
                 };
 
-                var result = await userManager.CreateAsync(seller, "Password123!");
-                if (result.Succeeded)
+                foreach (var seller in sellers)
                 {
-                    await userManager.AddToRoleAsync(seller, Roles.Roles.Seller);
+                    var result = await userManager.CreateAsync(seller, "Password123!");
+                    if (result.Succeeded)
+                    {
+                        await userManager.AddToRoleAsync(seller, Roles.Roles.Seller);
+                    }
                 }
 
-
-                var buyer = new User
-                {
-                    Id = "3",
-                    Firstname = "Anna",
-                    Lastname = "Miła",
-                    UserName = "mila@workspace.com",
-                    Email = "mila@workspace.com",
+                var buyers = new List<User>() {
+                    new User
+                    {
+                        Id = "5",
+                        Firstname = "Anna",
+                        Lastname = "Miła",
+                        UserName = "mila@workspace.com",
+                        Email = "mila@workspace.com",
+                    },
+                    new User
+                    {
+                        Id = "6",
+                        Firstname = "Miłosz",
+                        Lastname = "Stracber",
+                        UserName = "stracber@workspace.com",
+                        Email = "stracber@workspace.com",
+                    },
+                    new User
+                    {
+                        Id = "7",
+                        Firstname = "Krzysztof",
+                        Lastname = "Buricki",
+                        UserName = "buricki@workspace.com",
+                        Email = "buricki@workspace.com",
+                    },
+                    new User
+                    {
+                        Id = "8",
+                        Firstname = "Stella",
+                        Lastname = "Sardothien",
+                        UserName = "sardothien@workspace.com",
+                        Email = "sardothien@workspace.com",
+                    }
                 };
 
-                result = await userManager.CreateAsync(buyer, "Password123!");
-                if (result.Succeeded)
+                foreach (var buyer in buyers)
                 {
-                    await userManager.AddToRoleAsync(buyer, Roles.Roles.Seller);
+                    var result = await userManager.CreateAsync(buyer, "Password123!");
+                    if (result.Succeeded)
+                    {
+                        await userManager.AddToRoleAsync(buyer, Roles.Roles.Seller);
+                    }
                 }
             }
         }
