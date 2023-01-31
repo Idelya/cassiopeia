@@ -9,6 +9,7 @@ export type User = {
 export type Photo = {
   id: number;
   src: string;
+  mainImage: boolean;
 };
 
 export type ExtendOffer = {
