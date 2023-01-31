@@ -54,6 +54,13 @@ namespace MainAPI.Controllers
         }
 
 
+        [HttpPost("create")]
+        public async Task<ActionResult> CreateOffer([FromBody] CreateOfferRequest request)
+        {
+            var url = $"{OfferBaseUrl}/{ShoppingServiceConfig.CREATE_OFFER}";
+            return await RedirectRequest(url, RequestMethod.Post, request);
+        }
+
         private async Task<ActionResult> RedirectRequest(string url, RequestMethod method = RequestMethod.Get, object body = null)
         {
             var t = await Services.HttpClient.SendRequestAsync(url, method, body);

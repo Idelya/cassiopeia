@@ -37,7 +37,7 @@ namespace ShoppingServiceAPI.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<ActionResult<IEnumerable<OfferResponse>>> CreateOffer([FromBody] CreateOfferRequest request)
+        public async Task<ActionResult> CreateOffer([FromBody] CreateOfferRequest request)
         {
             var result = await offerService.AddOffer(request);
             if (result)

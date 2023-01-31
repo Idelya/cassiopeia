@@ -28,7 +28,7 @@ namespace MainAPI.Services
             var role = await UserRole(user);
 
 
-            var response = new LoginResponse() { Token = token, UserRole = role};
+            var response = new LoginResponse() { Token = token, UserRole = role, UserId = user.Id};
 
             return response;
         }
