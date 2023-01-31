@@ -7,7 +7,7 @@ import {
   CardContent,
   CardMedia,
   Divider,
-  Typography
+  Typography,
 } from "@mui/material";
 import React from "react";
 import { ExtendOffer } from "../../types/types";
@@ -24,48 +24,64 @@ const OfferItem = ({ offer }: OfferItemProps) => {
 
   const navigate = useNavigate();
 
+  const onAdd = () => {
+    const basketAsString = localStorage.getItem("basket");
+    const items = basketAsString ? JSON.parse(basketAsString) || [] : [];
+    items.push({ ...offer, chosenDelivery: offer.deliveryTypes[0].id });
+    localStorage.setItem("basket", JSON.stringify(items));
+  };
+
   return (
     <Card sx={{ height: 250, width: 600, display: "flex", p: 1 }}>
-      <CardActionArea onClick={() => navigate("/offer/"+offer.id)} sx={{ height: 250, width: 600, display: "flex", p: 1 }}>
-      <CardMedia
-        sx={{ height: "100%", minWidth: 250 }}
-        image={Placeholder}
-        title="no image"
-      />
-      <CardContent>
-        <Typography variant="h5">{offer.name}</Typography>
-        <Divider />
-        <Box sx={{ p: 1, pl: 0, pr: 0 }}>
-          <Typography
-            variant="body2"
+      <CardActionArea
+        onClick={() => navigate("/offer/" + offer.id)}
+        sx={{ height: 250, width: 600, display: "flex", p: 1 }}
+      >
+        <CardMedia
+          sx={{ height: "100%", minWidth: 250 }}
+          image={Placeholder}
+          title="no image"
+        />
+        <CardContent>
+          <Typography variant="h5">{offer.name}</Typography>
+          <Divider />
+          <Box sx={{ p: 1, pl: 0, pr: 0 }}>
+            <Typography
+              variant="body2"
+              sx={{
+                maxHeight: 200,
+                textOverflow: "ellipsis",
+                overflow: "hidden",
+                display: "-webkit-box",
+                WebkitLineClamp: 6,
+                WebkitBoxOrient: "vertical",
+              }}
+            >
+              {offer.description}
+            </Typography>
+          </Box>
+          <CardActions
             sx={{
-              maxHeight: 200,
-              textOverflow: "ellipsis",
-              overflow: "hidden",
-              display: "-webkit-box",
-              WebkitLineClamp: 6,
-              WebkitBoxOrient: "vertical",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "end",
             }}
           >
-            {offer.description}
-          </Typography>
-        </Box>
-        <CardActions
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "end",
-          }}
-        >
-          <Button variant="contained" 
-            onMouseDown={event => event.stopPropagation()}
-            onClick={event => {
-              event.stopPropagation();
-              event.preventDefault();
-            }}>{ t("add") }</Button>
-          <Typography variant="h5">{offer.price} PLN</Typography>
-        </CardActions>
-      </CardContent></CardActionArea>
+            <Button
+              variant="contained"
+              onMouseDown={(event) => event.stopPropagation()}
+              onClick={(event) => {
+                event.stopPropagation();
+                event.preventDefault();
+                onAdd();
+              }}
+            >
+              {t("add")}
+            </Button>
+            <Typography variant="h5">{offer.price} PLN</Typography>
+          </CardActions>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 };

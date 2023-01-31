@@ -29,18 +29,20 @@ const BuyProductsModal = ({
     initialValues: {
       street: "",
       city: "",
-      postalCode: ""
+      streetNumber: "",
     },
     onSubmit: async (values) => {
-
       await axios.post("http://localhost:5084/api/order/buy", {
         adress: {
           street: values.street,
           city: values.city,
-          postalCode: values.postalCode
+          streetNumber: values.streetNumber,
         },
-        purchases: selectedProducts?.map<any>(p => ({ offerId: p.id, deliveryId: p.chosenDelivery })),
-        headers: { userToken: sessionStorage.getItem("token")}
+        purchases: selectedProducts?.map<any>((p) => ({
+          offerId: p.id,
+          deliveryId: p.chosenDelivery,
+        })),
+        headers: { userToken: sessionStorage.getItem("token") },
       });
 
       onClose();
@@ -50,28 +52,17 @@ const BuyProductsModal = ({
   return (
     <Dialog open={open} onClose={onClose}>
       <form onSubmit={formik.handleSubmit}>
-        <DialogTitle>{ t("basket.buyProducts") }</DialogTitle>
+        <DialogTitle>{t("basket.buyProducts")}</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            { t("basket.deliveryAdressText") }
+            {t("basket.deliveryAdressText")}
           </DialogContentText>
           <TextField
             autoFocus
             required
             margin="dense"
-            id="street"
-            label={ t("basket.streetAndNumber") }
-            fullWidth
-            variant="standard"
-            onChange={formik.handleChange}
-            value={formik.values.street}
-          />
-          <TextField
-            autoFocus
-            required
-            margin="dense"
             id="city"
-            label={ t("basket.city") }
+            label={t("basket.city")}
             fullWidth
             variant="standard"
             onChange={formik.handleChange}
@@ -81,20 +72,31 @@ const BuyProductsModal = ({
             autoFocus
             required
             margin="dense"
-            id="postalCode"
-            label={ t("basket.postalCode") }
+            id="street"
+            label={t("basket.street")}
             fullWidth
             variant="standard"
             onChange={formik.handleChange}
-            value={formik.values.postalCode}
+            value={formik.values.street}
+          />
+          <TextField
+            autoFocus
+            required
+            margin="dense"
+            id="streetNumber"
+            label={t("basket.streetNumber")}
+            fullWidth
+            variant="standard"
+            onChange={formik.handleChange}
+            value={formik.values.streetNumber}
           />
         </DialogContent>
         <DialogActions sx={{ p: 3 }}>
           <Button onClick={onClose} variant="outlined">
-          { t("cancel") }
+            {t("cancel")}
           </Button>
           <Button type="submit" variant="contained">
-          { t("basket.buy") }
+            {t("basket.buy")}
           </Button>
         </DialogActions>
       </form>
