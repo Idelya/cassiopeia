@@ -2,6 +2,11 @@
 using MainAPI.DTOs;
 using MainAPI.MicroServicesConfig;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Logging;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace MainAPI.Controllers
 {
@@ -57,7 +62,12 @@ namespace MainAPI.Controllers
         [HttpPost("create")]
         public async Task<ActionResult> CreateOffer([FromBody] CreateOfferRequest request)
         {
-            var url = $"{OfferBaseUrl}/{ShoppingServiceConfig.CREATE_OFFER}";
+            var userToken = Request.Headers.FirstOrDefault(x => x.Key == "userToken");
+
+            var principal = ValidateToken(userToken.Value);
+            var userId = principal.Claims.Where(x => x.Type == "userId").Select(x => x.Value).FirstOrDefault();
+
+            var url = $"{OfferBaseUrl}/{ShoppingServiceConfig.CREATE_OFFER}/{userId}";
             return await RedirectRequest(url, RequestMethod.Post, request);
         }
 
@@ -65,6 +75,24 @@ namespace MainAPI.Controllers
         {
             var t = await Services.HttpClient.SendRequestAsync(url, method, body);
             return StatusCode((int)t.StatusCode, t.Content.ReadAsStringAsync().Result);
+        }
+
+        private static ClaimsPrincipal ValidateToken(string jwtToken)
+        {
+            IdentityModelEventSource.ShowPII = true;
+
+            SecurityToken validatedToken;
+            TokenValidationParameters validationParameters = new TokenValidationParameters();
+
+            validationParameters.ValidateLifetime = true;
+            validationParameters.ValidAudience = "BiedneStudenty";
+            validationParameters.ValidIssuer = "BiedneStudenty";
+            validationParameters.IssuerSigningKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(Encoding.UTF8.GetBytes("4976b722-f445-4ec3-89bf-abbb007396d6"));
+
+            ClaimsPrincipal principal = new JwtSecurityTokenHandler().ValidateToken(jwtToken, validationParameters, out validatedToken);
+
+
+            return principal;
         }
     }
 }
