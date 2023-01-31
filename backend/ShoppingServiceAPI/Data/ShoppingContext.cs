@@ -1,4 +1,5 @@
 ﻿using Data.Models;
+using Data.Seeds;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data
@@ -15,6 +16,10 @@ namespace Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+         
+            //DeliveryOffer
+            modelBuilder.Seed();
         }
     }
 }
