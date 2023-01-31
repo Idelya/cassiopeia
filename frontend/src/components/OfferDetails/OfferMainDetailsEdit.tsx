@@ -23,7 +23,7 @@ const OfferMainDetailsEdit = ({
   const { t } = useTranslation();
 
   const [deliveryTypes, setDeliveryTypes] = useState<DeliveryType[]>([]);
-  axios.get("http://localhost:5084/api/offer/deivery", { headers: { userToken: sessionStorage.getItem("token")} })
+  axios.get("http://localhost:5084/api/offer/delivery", { headers: { userToken: sessionStorage.getItem("token")} })
         .then((response) => setDeliveryTypes(response.data))
   
   return (
