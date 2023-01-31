@@ -55,9 +55,10 @@ i18n
             backToSearch: "Back to search",
             buyProducts: "Buy products",
             deliveryAdressText: "Input delivery adress",
-            streetAndNumber: "Street and number",
+            street: "Street",
             city: "City",
             postalCode: "Postal code",
+            streetNumber: "Street number",
             buy: "Buy",
             continue: "Continue"
           },
@@ -126,9 +127,10 @@ i18n
             backToSearch: "Wróć do wyszukiwarki",
             buyProducts: "Kup produkty",
             deliveryAdresText: "Podaj adres dostawy",
-            streetAndNumber: "Ulica i numer",
+            street: "Ulica",
             city: "Miasto",
             postalCode: "Kod pocztowy",
+            streetNumber: "Numer domu/mieszkania",
             buy: "Kup",
             continue: "Kontynuuj"
           },

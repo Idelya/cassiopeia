@@ -12,13 +12,14 @@ export const photos = [
   {
     id: 1,
     src: "https://images.freeimages.com/images/large-previews/a3e/wild-horse-1334844.jpg",
+    mainImage: false,
   },
   {
     id: 2,
     src: "https://images.freeimages.com/images/large-previews/fcc/bench-1307687.jpg",
+    mainImage: true,
   },
 ];
-
 
 export const offersMockUp: ExtendOffer[] = [
   {
@@ -27,7 +28,7 @@ export const offersMockUp: ExtendOffer[] = [
     price: 40.38,
     status: DeliveryStatus.SEND,
     displayAmount: 30,
-    deliveryTypes: [],
+    deliveryTypes: deliveryTypes,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
   },
@@ -36,7 +37,7 @@ export const offersMockUp: ExtendOffer[] = [
     name: "Nazwa Produktu 2",
     price: 40.38,
     displayAmount: 12,
-    deliveryTypes: [],
+    deliveryTypes: deliveryTypes,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
   },
@@ -46,7 +47,7 @@ export const offersMockUp: ExtendOffer[] = [
     price: 40.38,
     status: DeliveryStatus.SOLD,
     displayAmount: 40,
-    deliveryTypes: [],
+    deliveryTypes: deliveryTypes,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
   },
@@ -55,7 +56,7 @@ export const offersMockUp: ExtendOffer[] = [
     name: "Nazwa Produktu 4",
     price: 40.38,
     displayAmount: 132,
-    deliveryTypes: [],
+    deliveryTypes: deliveryTypes,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
   },
@@ -64,7 +65,7 @@ export const offersMockUp: ExtendOffer[] = [
     name: "Nazwa Produktu 5",
     price: 40.38,
     displayAmount: 132,
-    deliveryTypes: [],
+    deliveryTypes: deliveryTypes,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
   },
