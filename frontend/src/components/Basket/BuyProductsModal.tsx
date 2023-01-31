@@ -33,7 +33,7 @@ const BuyProductsModal = ({
     },
     onSubmit: async (values) => {
       await axios.post("http://localhost:5084/api/order/buy", {
-        adress: {
+        address: {
           street: values.street,
           city: values.city,
           streetNumber: values.streetNumber,

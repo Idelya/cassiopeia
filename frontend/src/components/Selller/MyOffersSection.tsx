@@ -15,55 +15,6 @@ import OfferItem from "./OfferItem";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 
-const offersMockUp: ExtendOffer[] = [
-  {
-    id: 1,
-    name: "Nazwa Produktu",
-    price: 40.38,
-    status: DeliveryStatus.SEND,
-    displayAmount: 30,
-    deliveryTypes: [],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
-  },
-  {
-    id: 2,
-    name: "Nazwa Produktu 2",
-    price: 40.38,
-    displayAmount: 12,
-    deliveryTypes: [],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
-  },
-  {
-    id: 3,
-    name: "Nazwa Produktu 3",
-    price: 40.38,
-    status: DeliveryStatus.SOLD,
-    displayAmount: 40,
-    deliveryTypes: [],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
-  },
-  {
-    id: 4,
-    name: "Nazwa Produktu 4",
-    price: 40.38,
-    displayAmount: 132,
-    deliveryTypes: [],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
-  },
-  {
-    id: 5,
-    name: "Nazwa Produktu 5",
-    price: 40.38,
-    displayAmount: 132,
-    deliveryTypes: [],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus ligula a est ultricies convallis. Donec est eros, vulputate vestibulum aliquam ac, ornare tincidunt quam. Nullam augue neque, feugiat nec interdum in, condimentum non metus. Quisque in varius tortor. Duis sodales feugiat sapien vel pellentesque. Nulla eu semper diam. Etiam pharetra elit sagittis massa aliquet semper. Mauris convallis diam at quam congue hendrerit. Morbi a orci ultrices, ornare elit et, vestibulum urna. ",
-  },
-];
 const MyOffersSection = () => {
   const { t } = useTranslation();
   const [seeOnlyActual, setSeeOnlyActual] = useState(false);
@@ -71,7 +22,7 @@ const MyOffersSection = () => {
 
   const [offers, setOffers] = useState<ExtendOffer[]>([]);
   axios.get("http://localhost:5084/api/offer/user/"+sessionStorage.getItem("userId"), { headers: { userToken: sessionStorage.getItem("token")} })
-        .then((response) => setOffers(response.data))
+        .then((response) => {if(String(response.data) !== String(offers)) { setOffers(response.data); }})
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", m: 1 }}>

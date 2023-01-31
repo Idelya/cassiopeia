@@ -24,7 +24,9 @@ const OfferMainDetailsEdit = ({
 
   const [deliveryTypes, setDeliveryTypes] = useState<DeliveryType[]>([]);
   axios.get("http://localhost:5084/api/offer/delivery", { headers: { userToken: sessionStorage.getItem("token")} })
-        .then((response) => setDeliveryTypes(response.data))
+        .then((response) => {
+          {if(String(response.data) !== String(deliveryTypes)) { setDeliveryTypes(response.data); }}
+        })
   
   return (
     <Box sx={{ width: "100%" }}>
@@ -52,7 +54,7 @@ const OfferMainDetailsEdit = ({
             sx={{ mt: 1, mb: 0.5 }}
             id="deliveryTypes"
             multiple
-            value={offer.deliveryTypes}
+            value={offer.newDeliveryTypes}
             onChange={(e) =>
               onChange({
                 ...offer,
@@ -64,9 +66,9 @@ const OfferMainDetailsEdit = ({
             }
             input={<OutlinedInput />}
           >
-            {deliveryTypes.map((delivery) => (
-              <MenuItem key={delivery.name} value={delivery.id}>
-                {`${delivery.name} - ${delivery.price} zł`}
+            {deliveryTypes.map(({ id, name, price }) => (
+              <MenuItem key={name} value={id}>
+                {`${name} - ${price} zł`}
               </MenuItem>
             ))}
           </Select>

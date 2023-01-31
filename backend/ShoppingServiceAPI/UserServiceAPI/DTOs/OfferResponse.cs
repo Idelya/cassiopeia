@@ -11,5 +11,9 @@ namespace ShoppingServiceAPI.DTOs
         public int DisplayAmount { get; set; }
         public string SellerID { get; set; }
         public IEnumerable<DeliveryResponse> DeliveryTypes { get; set; }
+        public IEnumerable<int> NewDeliveryTypes { 
+            get {
+                return DeliveryTypes.Select(x => x.Id);
+            }}
     }
 }

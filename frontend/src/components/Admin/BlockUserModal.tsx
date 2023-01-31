@@ -31,7 +31,7 @@ const BlockUserModal = ({
     },
     onSubmit: async (values) => {
 
-      await axios.post("http://localhost:5084/api/user/ban", { userid: blockedUser?.id, reason: values.blockReason,
+      await axios.post("http://localhost:5084/api/user/ban", { userId: blockedUser?.id, reason: values.blockReason,
         headers: { userToken: sessionStorage.getItem("token")} });
       onClose()
     },

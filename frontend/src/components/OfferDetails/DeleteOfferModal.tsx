@@ -39,7 +39,7 @@ const DeleteOfferModal = ({
           <Button onClick={onClose} variant="outlined">
           { t("cancel") }
           </Button>
-          <Button type="submit" variant="contained" onClick={() => OnDeleteOffer(offerId)}>
+          <Button type="submit" variant="contained" onClick={() => {OnDeleteOffer(offerId); onClose();}}>
           { t("delete") }
           </Button>
         </DialogActions>

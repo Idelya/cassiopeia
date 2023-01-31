@@ -13,7 +13,7 @@ const OnSaveOffer = async (offer: ExtendOffer) => {
     name: offer.name,
     description: offer.description,
     price: offer.price,
-    deliveryTypeIds: offer.newDeliveryTypes,
+    deliveryIds: offer.newDeliveryTypes,
     headers: { userToken: sessionStorage.getItem("token") },
   });
 };
@@ -27,6 +27,7 @@ const NewOfferSection = () => {
     price: 10,
     displayAmount: 1,
     deliveryTypes: [],
+    newDeliveryTypes: [],
     description: "",
     mainImage: "",
     photos: [],

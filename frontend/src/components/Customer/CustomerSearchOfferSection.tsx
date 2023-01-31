@@ -17,8 +17,10 @@ const CustomerSearchOfferSection = () => {
       .get("http://localhost:5084/api/offer/all", {
         headers: { userToken: sessionStorage.getItem("token") },
       })
-      .then((response) => setOffers(response.data));
+      .then((response) => {if(String(response.data) !== String(offers)) { setOffers(response.data); }});
   }, []);
+
+  console.log(offers);
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", m: 1 }}>

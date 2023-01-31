@@ -16,9 +16,10 @@ const OnSaveOffer = async (offer: ExtendOffer) => {
     name: offer.name,
     description: offer.description,
     price: offer.price,
-    deliveryTypeIds: offer.newDeliveryTypes,
+    deliveryIds: offer.newDeliveryTypes,
     headers: { userToken: sessionStorage.getItem("token")}
-  })
+  });
+
 }
 
 const OfferSectionEdit = () => {
@@ -33,6 +34,7 @@ const OfferSectionEdit = () => {
     price: 10,
     displayAmount: 1,
     deliveryTypes: [],
+    newDeliveryTypes: [],
     description: "",
     photos: photos,
   });
@@ -68,7 +70,7 @@ const OfferSectionEdit = () => {
           <Button
             variant="contained"
             sx={{ m: 2 }}
-            onClick={() => OnSaveOffer(offer)}
+            onClick={() => {OnSaveOffer(offer); navigate("/myoffers");}}
           >
             {t("offer.saveChanges")}
           </Button>

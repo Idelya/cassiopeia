@@ -65,7 +65,7 @@ const BasketSection = () => {
       <Box
         sx={{ pt: 5, pb: 5, display: "flex", justifyContent: "space-between" }}
       >
-        <Typography variant="h4">{`Suma: ${44.32} zł`}</Typography>
+        {/* <Typography variant="h4">{`Suma: ${44.32} zł`}</Typography> */}
         <Button color="error" onClick={onDeleteAll}>
           {t("basket.clearBasket")}
         </Button>

@@ -19,7 +19,7 @@ const UsersList = ({ onBlock, onUnblock }: UsersListProps) => {
 
   const [users, setUsers] = useState<User[]>([]);
   axios.get("http://localhost:5084/api/user/users", { headers: { userToken: sessionStorage.getItem("token")} })
-        .then((response) => setUsers(response.data))
+        .then((response) => {if(String(response.data) !== String(users)) { setUsers(response.data); }})
 
   return (
     <MaterialReactTable

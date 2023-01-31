@@ -10,6 +10,8 @@ interface OfferMainDetailsProps {
 const OfferMainDetails = ({ offer }: OfferMainDetailsProps) => {
   const { t } = useTranslation();
 
+  console.log(offer);
+
   const onAdd = () => {
     const basketAsString = localStorage.getItem("basket");
     const items = basketAsString ? JSON.parse(basketAsString) || [] : [];
