@@ -1,7 +1,6 @@
 ﻿using Data.Models;
 using MainAPI.DTOs;
 using MainAPI.Interfaces;
-using System.Diagnostics.Metrics;
 
 namespace MainAPI.Services
 {
@@ -24,11 +23,12 @@ namespace MainAPI.Services
 
             if (!result.Succeeded)
                 return null;
+
             var token = await _jwtService.GenerateJWToken(user);
-            var response = new LoginResponse() { Token = token };
+            var role = await UserRole(user);
 
 
-
+            var response = new LoginResponse() { Token = token, UserRole = role};
 
             return response;
         }

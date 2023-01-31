@@ -1,6 +1,5 @@
 ﻿using Data.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Data.Seed;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data
@@ -14,6 +13,7 @@ namespace Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Seed();
         }
     }
 }
