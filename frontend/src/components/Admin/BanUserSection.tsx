@@ -12,7 +12,8 @@ const BanUserSection = () => {
   
   const [blockedUser, setBlockedUser] = useState<null | User>(null);
   const onUnblockUser = async (user: User) => {
-    await axios.post("http://localhost:5084/api/user/unban", { userid: user.id });
+    await axios.post("http://localhost:5084/api/user/unban", { userid: user.id, 
+      headers: { userToken: sessionStorage.getItem("token")} });
   };
   return (
     <Box sx={{ display: "flex", flexDirection: "column", m: 1 }}>

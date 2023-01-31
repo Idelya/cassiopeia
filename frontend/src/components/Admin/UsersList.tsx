@@ -17,8 +17,8 @@ interface UsersListProps {
 const UsersList = ({ onBlock, onUnblock }: UsersListProps) => {
   const { t } = useTranslation();
 
-  const [users, setUsers] = useState<User[]>([]);;
-  axios.get("http://localhost:5084/api/user/users")
+  const [users, setUsers] = useState<User[]>([]);
+  axios.get("http://localhost:5084/api/user/users", { headers: { userToken: sessionStorage.getItem("token")} })
         .then((response) => setUsers(response.data))
 
   return (

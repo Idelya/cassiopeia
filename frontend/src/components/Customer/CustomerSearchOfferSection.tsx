@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Autocomplete,
   Box,
@@ -18,9 +18,10 @@ const CustomerSearchOfferSection = () => {
 
   const navigate = useNavigate();
 
-  var offers: ExtendOffer[] = [];
+  const [offers, setOffers] = useState<ExtendOffer[]>([]);
 
-  axios.get("http://localhost:5084/api/offer/all").then((response) => offers = response.data);
+  axios.get("http://localhost:5084/api/offer/all", { headers: { userToken: sessionStorage.getItem("token")} })
+    .then((response) => setOffers(response.data));
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", m: 1 }}>

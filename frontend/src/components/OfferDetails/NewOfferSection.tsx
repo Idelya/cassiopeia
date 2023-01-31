@@ -17,7 +17,8 @@ const OnSaveOffer = async (offer: ExtendOffer) => {
     name: offer.name,
     description: offer.description,
     price: offer.price,
-    deliveryTypeIds: offer.newDeliveryTypes
+    deliveryTypeIds: offer.newDeliveryTypes,
+    headers: { userToken: sessionStorage.getItem("token")}
   })
 }
 

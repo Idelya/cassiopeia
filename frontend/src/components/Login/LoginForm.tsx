@@ -15,12 +15,22 @@ const LoginForm = () => {
       password: "",
     },
     onSubmit: async (values) => {
-      //TODO: tutaj logowanie
       await axios.post("http://localhost:5084/api/auth/login", { username: values.username, password: values.password })
-        .then((response) => console.log(response))//TODO: navigate
+        .then((response) => {
+          sessionStorage.setItem("token", response.data.token);
 
-      console.log(values);
-      navigate("/");
+          var role = response.data.userRole;
+
+          if(role === "") {
+            navigate("/admin");
+          }
+          else if(role === "") {
+            navigate("/myoffers");
+          }
+          else {
+            navigate("/offers");
+          }
+        })
     },
   });
 

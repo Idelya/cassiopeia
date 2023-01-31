@@ -18,7 +18,7 @@ interface DeleteOfferModalProps {
 
 const OnDeleteOffer = async (offerId: string) => {
 
-  await axios.delete("http://localhost:5084/api/offer/"+offerId);
+  await axios.delete("http://localhost:5084/api/offer/"+offerId, { headers: { userToken: sessionStorage.getItem("token")} });
 }
 
 const DeleteOfferModal = ({
