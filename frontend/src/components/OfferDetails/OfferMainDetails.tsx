@@ -1,7 +1,6 @@
 import { Box, Typography, Button } from "@mui/material";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { deliveryTypes } from "../../static/mockUpData";
 import { ExtendOffer } from "../../types/types";
 
 interface OfferMainDetailsProps {

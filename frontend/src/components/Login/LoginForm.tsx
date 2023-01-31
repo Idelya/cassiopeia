@@ -18,13 +18,14 @@ const LoginForm = () => {
       await axios.post("http://localhost:5084/api/auth/login", { username: values.username, password: values.password })
         .then((response) => {
           sessionStorage.setItem("token", response.data.token);
+          sessionStorage.setItem("userId", response.data.userId);
 
           var role = response.data.userRole;
 
-          if(role === "") {
+          if(role === "Administrator") {
             navigate("/admin");
           }
-          else if(role === "") {
+          else if(role === "Seller") {
             navigate("/myoffers");
           }
           else {
@@ -33,8 +34,6 @@ const LoginForm = () => {
         })
     },
   });
-
- 
 
   return (
     <Box

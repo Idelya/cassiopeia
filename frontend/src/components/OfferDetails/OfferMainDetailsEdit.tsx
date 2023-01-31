@@ -6,10 +6,10 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { deliveryTypes } from "../../static/mockUpData";
-import { ExtendOffer } from "../../types/types";
+import { DeliveryType, ExtendOffer } from "../../types/types";
 
 interface OfferMainDetailsEditProps {
   offer: ExtendOffer;
@@ -21,6 +21,10 @@ const OfferMainDetailsEdit = ({
   onChange,
 }: OfferMainDetailsEditProps) => {
   const { t } = useTranslation();
+
+  const [deliveryTypes, setDeliveryTypes] = useState<DeliveryType[]>([]);
+  axios.get("http://localhost:5084/api/offer/deivery", { headers: { userToken: sessionStorage.getItem("token")} })
+        .then((response) => setDeliveryTypes(response.data))
   
   return (
     <Box sx={{ width: "100%" }}>

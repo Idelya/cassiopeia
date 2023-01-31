@@ -13,6 +13,7 @@ import { DeliveryStatus, ExtendOffer } from "../../types/types";
 import { useNavigate } from "react-router";
 import OfferItem from "./OfferItem";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
 
 const offersMockUp: ExtendOffer[] = [
   {
@@ -67,6 +68,10 @@ const MyOffersSection = () => {
   const { t } = useTranslation();
   const [seeOnlyActual, setSeeOnlyActual] = useState(false);
   const navigate = useNavigate();
+
+  const [offers, setOffers] = useState<ExtendOffer[]>([]);
+  axios.get("http://localhost:5084/api/offer/user/"+sessionStorage.getItem("userId"), { headers: { userToken: sessionStorage.getItem("token")} })
+        .then((response) => setOffers(response.data))
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", m: 1 }}>
@@ -123,7 +128,7 @@ const MyOffersSection = () => {
         />
       </Box>
       <OffersList>
-        {offersMockUp.map((offer) => (
+        {offers.map((offer) => (
           <OfferItem offer={offer} />
         ))}
       </OffersList>
