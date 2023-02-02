@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DeliveryType, ExtendOffer } from "../../types/types";
 
@@ -23,10 +23,10 @@ const OfferMainDetailsEdit = ({
   const { t } = useTranslation();
 
   const [deliveryTypes, setDeliveryTypes] = useState<DeliveryType[]>([]);
-  axios.get("http://localhost:5084/api/offer/delivery", { headers: { userToken: sessionStorage.getItem("token")} })
-        .then((response) => {
-          {if(String(response.data) !== String(deliveryTypes)) { setDeliveryTypes(response.data); }}
-        })
+  useEffect(() => 
+  {axios.get("http://localhost:5084/api/offer/delivery", { headers: { userToken: sessionStorage.getItem("token")} })
+        .then((response) => setDeliveryTypes(response.data))}, []);
+  
   
   return (
     <Box sx={{ width: "100%" }}>

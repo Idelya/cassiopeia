@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Typography from "@mui/material/Typography";
 import {
   Autocomplete,
@@ -21,8 +21,9 @@ const MyOffersSection = () => {
   const navigate = useNavigate();
 
   const [offers, setOffers] = useState<ExtendOffer[]>([]);
+  useEffect(() => {
   axios.get("http://localhost:5084/api/offer/user/"+sessionStorage.getItem("userId"), { headers: { userToken: sessionStorage.getItem("token")} })
-        .then((response) => {if(String(response.data) !== String(offers)) { setOffers(response.data); }})
+        .then((response) => setOffers(response.data)) }, []);
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", m: 1 }}>
