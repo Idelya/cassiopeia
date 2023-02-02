@@ -9,6 +9,6 @@ namespace ImageServiceAPI.Interfaces
         Task<bool> AddOfferImage(AddOfferImageRequest request);
         IEnumerable<ImageDto> GetImageInfosByOfferId(int offerId);
 
-        Task<bool> EditImages(IEnumerable<ImageDto> images);
+        Task<bool> EditImages(EditOfferImageRequest request);
     }
 }

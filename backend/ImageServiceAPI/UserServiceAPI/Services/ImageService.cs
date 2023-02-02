@@ -61,16 +61,51 @@ namespace ImageServiceAPI.Services
             return Context.ImageInfo.Where(x => x.OfferId == offerId).Select(x => new ImageDto(x.Id, x.IsMain, x.ImageData.Name));
         }
 
-        public async Task<bool> EditImages(IEnumerable<ImageDto> images)
+        public async Task<bool> EditImages(EditOfferImageRequest request)
         {
-            //TODO
+            var images = request.Images;
+            if (images.Count() == 0)
+            {
+                return true;
+            }
             var isMainCount = images.Count(x => x.IsMain);
             if (isMainCount > 1)
                 return false;
 
-            foreach (ImageDto data in images)
+
+
+            var imageInfosFromDb = Context.ImageInfo.Where(x => x.OfferId == request.OfferId).ToArray();
+            var imageInfosToDelete = new LinkedList<ImageInfo>();
+
+            foreach (ImageInfo imageInfo in imageInfosFromDb)
             {
-                var dataInDb = Context.ImageData.FirstOrDefault(x => x.Id == data.Id && x.Name == data.Name);
+                bool isFound = false;
+                bool isMain = false;
+                foreach (var image in images)
+                {
+                    if (imageInfo.ImageData.Id == image.Id && imageInfo.ImageData.Name == image.Name)
+                    {
+                        isFound = true;
+                        isMain = image.IsMain;
+                    }
+                        
+                }
+
+                if (isFound)
+                {
+                    imageInfo.IsMain = isMain;
+                    Context.Update(imageInfo);
+                }
+                else
+                {
+                    imageInfosToDelete.AddLast(imageInfo);
+                }
+            }
+
+            foreach(ImageInfo toDelete in imageInfosToDelete)
+            {
+                Context.ImageData.Remove(toDelete.ImageData);
+                Context.ImageInfo.Remove(toDelete);
             }
 
             return true;

@@ -39,8 +39,8 @@ namespace ImageServiceAPI.Controllers
         }
 
         [HttpPut("edit")]
-        public async Task<ActionResult> EditOfferImages([FromForm] IEnumerable<ImageDto> request)
-        {
+        public async Task<ActionResult> EditOfferImages([FromBody] EditOfferImageRequest request)
+        {  
             var result = await imageService.EditImages(request);
             if (result)
                 return Ok();
