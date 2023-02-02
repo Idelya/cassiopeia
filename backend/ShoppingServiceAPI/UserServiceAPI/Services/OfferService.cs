@@ -15,10 +15,10 @@ namespace ShoppingServiceAPI.Services
             _mapper = mapper;
         }
 
-        public async Task<bool> AddOffer(CreateOfferRequest request)
+        public async Task<bool> AddOffer(CreateOfferRequest request, string userId)
         {
             var offer = _mapper.Map<Offer>(request);
-            offer.SellerID = "1"; //to do
+            offer.SellerID = userId; 
 
             Context.Add(offer);
             if (await Context.SaveChangesAsync() == 0)
@@ -53,7 +53,7 @@ namespace ShoppingServiceAPI.Services
                 if (await Context.SaveChangesAsync() == 0)
                     return false;
             }
-
+            Context.Offer.Attach(offer);
             Context.Offer.Remove(offer);
             if (await Context.SaveChangesAsync() == 0)
                 return false;

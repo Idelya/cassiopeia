@@ -36,10 +36,10 @@ namespace ShoppingServiceAPI.Controllers
             else return Conflict();
         }
 
-        [HttpPost("create")]
-        public async Task<ActionResult> CreateOffer([FromBody] CreateOfferRequest request)
+        [HttpPost("create/{id}")]
+        public async Task<ActionResult> CreateOffer([FromRoute] string id, [FromBody] CreateOfferRequest request)
         {
-            var result = await offerService.AddOffer(request);
+            var result = await offerService.AddOffer(request, id);
             if (result)
                 return Ok();
             else return Conflict();
@@ -52,9 +52,9 @@ namespace ShoppingServiceAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public ActionResult DeleteOffer([FromRoute] int id)
+        public async Task<ActionResult> DeleteOfferAsync([FromRoute] int id)
         {
-            var t = Ok(offerService.DeleteOffer(id));
+            var t = Ok(await offerService.DeleteOffer(id));
             return t;
         }
 

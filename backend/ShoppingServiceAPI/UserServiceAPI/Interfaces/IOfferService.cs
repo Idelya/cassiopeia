@@ -9,7 +9,7 @@ namespace ShoppingServiceAPI.Interfaces
         OfferResponse GetOffer(int id);
         Task<bool> EditOffers(OfferEditRequest offer);
         Task<bool> DeleteOffer(int id);
-        Task<bool> AddOffer(CreateOfferRequest request);
+        Task<bool> AddOffer(CreateOfferRequest request, string userId);
         IEnumerable<DeliveryResponse> GetDeliveries();
     }
 }
