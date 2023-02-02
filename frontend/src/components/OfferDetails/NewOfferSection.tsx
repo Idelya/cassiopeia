@@ -8,14 +8,22 @@ import OfferDescriptionEdit from "./OfferDescriptionEdit";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 
+
+
 const OnSaveOffer = async (offer: ExtendOffer) => {
+
+  let config = {
+    headers: {
+      userToken: sessionStorage.getItem("token"),
+    }
+  }
+
   await axios.post("http://localhost:5084/api/offer/create", {
     name: offer.name,
     description: offer.description,
     price: offer.price,
     deliveryIds: offer.newDeliveryTypes,
-    headers: { userToken: sessionStorage.getItem("token") },
-  });
+  }, config);
 };
 
 const NewOfferSection = () => {
@@ -52,12 +60,12 @@ const NewOfferSection = () => {
           offer={newOffer}
           onChange={(updatedOffer: ExtendOffer) => setNewOffer(updatedOffer)}
         />
-      </Grid>
+      </Grid> 
       <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
         <Button
           variant="contained"
           sx={{ m: 2 }}
-          onClick={() => OnSaveOffer(newOffer)}
+          onClick={() => {OnSaveOffer(newOffer); navigate("/myoffers")}}
         >
           {t("add")}
         </Button>

@@ -70,7 +70,7 @@ const OfferSectionEdit = () => {
           <Button
             variant="contained"
             sx={{ m: 2 }}
-            onClick={() => {OnSaveOffer(offer); navigate("/myoffers");}}
+            onClick={async () => {await OnSaveOffer(offer); navigate("/myoffers");}}
           >
             {t("offer.saveChanges")}
           </Button>

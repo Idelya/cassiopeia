@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 interface DeleteOfferModalProps {
   open: boolean;
@@ -27,6 +28,7 @@ const DeleteOfferModal = ({
   offerId,
 }: DeleteOfferModalProps) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   
   return (
     <Dialog open={open} onClose={onClose}>
@@ -39,7 +41,7 @@ const DeleteOfferModal = ({
           <Button onClick={onClose} variant="outlined">
           { t("cancel") }
           </Button>
-          <Button type="submit" variant="contained" onClick={() => {OnDeleteOffer(offerId); onClose();}}>
+          <Button type="submit" variant="contained" onClick={() => {OnDeleteOffer(offerId); onClose(); navigate("/myoffers");}}>
           { t("delete") }
           </Button>
         </DialogActions>

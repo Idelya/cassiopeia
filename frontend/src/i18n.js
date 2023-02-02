@@ -60,7 +60,8 @@ i18n
             postalCode: "Postal code",
             streetNumber: "Street number",
             buy: "Buy",
-            continue: "Continue"
+            continue: "Continue",
+            basketInfo: "Added to basket"
           },
           offer: {
             deleteConfirm: "Do you really want to delete this offer?",
@@ -132,7 +133,8 @@ i18n
             postalCode: "Kod pocztowy",
             streetNumber: "Numer domu/mieszkania",
             buy: "Kup",
-            continue: "Kontynuuj"
+            continue: "Kontynuuj",
+            basketInfo: "Dodano do koszyka"
           },
           offer: {
             deleteConfirm: "Czy na pewno chcesz usunąć tę ofertę?",
