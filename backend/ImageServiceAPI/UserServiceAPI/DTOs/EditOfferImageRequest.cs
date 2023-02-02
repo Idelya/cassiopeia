@@ -3,9 +3,9 @@
     public class EditOfferImageRequest
     {
         public int OfferId { get; set; }
-        public ImageDto[] Images { get; set; }
+        public ImageDto[]? Images { get; set; }
 
-        public EditOfferImageRequest()
+/*        public EditOfferImageRequest()
         {
 
         }
@@ -14,6 +14,6 @@
         {
             OfferId = offerId;
             Images = images;
-        }
+        }*/
     }
 }

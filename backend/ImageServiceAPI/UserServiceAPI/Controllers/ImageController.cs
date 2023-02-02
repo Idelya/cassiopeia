@@ -46,5 +46,14 @@ namespace ImageServiceAPI.Controllers
                 return Ok();
             else return Conflict();
         }
+
+        [HttpDelete("delete")]
+        public async Task<ActionResult> DeleteOfferImages([FromBody] DeleteImageRequest request)
+        {
+            var result = await imageService.DeleteImage(request);
+            if (result)
+                return Ok();
+            else return Conflict();
+        }
     }
 }

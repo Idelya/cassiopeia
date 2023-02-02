@@ -6,5 +6,7 @@
         public string? Name { get; set; }
         public string? ContentType { get; set; }
         public byte[]? Image { get; set; }
+        public int OfferId { get; set; }
+        public bool IsMain { get; set; }
     }
 }

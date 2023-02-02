@@ -10,5 +10,7 @@ namespace ImageServiceAPI.Interfaces
         IEnumerable<ImageDto> GetImageInfosByOfferId(int offerId);
 
         Task<bool> EditImages(EditOfferImageRequest request);
+
+        Task<bool> DeleteImage(DeleteImageRequest request);
     }
 }

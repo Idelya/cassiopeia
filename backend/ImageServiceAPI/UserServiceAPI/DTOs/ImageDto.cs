@@ -6,7 +6,7 @@
         public bool IsMain { get; set; }
         public string? Name { get; set; }
 
-        public ImageDto(int id, bool isMain, string? name)
+/*        public ImageDto(int id, bool isMain, string? name)
         {
             Id = id;
             IsMain = isMain;
@@ -15,6 +15,6 @@
 
         public ImageDto()
         {
-        }
+        }*/
     }
 }

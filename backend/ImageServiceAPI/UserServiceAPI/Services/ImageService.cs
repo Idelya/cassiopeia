@@ -27,14 +27,10 @@ namespace ImageServiceAPI.Services
             imageData.Name = Path.GetRandomFileName() + extension;
             imageData.Image = FileOperator.ExtractFileContent(request.OfferImage);
             imageData.ContentType = request.OfferImage.ContentType;
-
-            var imageInfo = new ImageInfo();
-            imageInfo.OfferId = request.OfferId;
-            imageInfo.IsMain = false;
-            imageInfo.ImageData = imageData;
+            imageData.OfferId = request.OfferId;
+            imageData.IsMain = false;
 
             Context.ImageData.Add(imageData);
-            Context.ImageInfo.Add(imageInfo);
 
             if (await Context.SaveChangesAsync() == 0)
                 return false;
@@ -58,7 +54,12 @@ namespace ImageServiceAPI.Services
 
         public IEnumerable<ImageDto> GetImageInfosByOfferId(int offerId)
         {
-            return Context.ImageInfo.Where(x => x.OfferId == offerId).Select(x => new ImageDto(x.Id, x.IsMain, x.ImageData.Name));
+            return Context.ImageData.Where(x => x.OfferId == offerId).Select(x => new ImageDto
+            {
+                Id = x.Id,
+                IsMain = x.IsMain,
+                Name = x.Name
+            }); ;
         }
 
         public async Task<bool> EditImages(EditOfferImageRequest request)
@@ -74,16 +75,16 @@ namespace ImageServiceAPI.Services
 
 
 
-            var imageInfosFromDb = Context.ImageInfo.Where(x => x.OfferId == request.OfferId).ToArray();
-            var imageInfosToDelete = new LinkedList<ImageInfo>();
+            var imageInfosFromDb = Context.ImageData.Where(x => x.OfferId == request.OfferId).ToArray();
+            var imageInfosToDelete = new LinkedList<ImageData>();
 
-            foreach (ImageInfo imageInfo in imageInfosFromDb)
+            foreach (ImageData imageData in imageInfosFromDb)
             {
                 bool isFound = false;
                 bool isMain = false;
                 foreach (var image in images)
                 {
-                    if (imageInfo.ImageData.Id == image.Id && imageInfo.ImageData.Name == image.Name)
+                    if (imageData.Id == image.Id && imageData.Name == image.Name)
                     {
                         isFound = true;
                         isMain = image.IsMain;
@@ -93,22 +94,40 @@ namespace ImageServiceAPI.Services
 
                 if (isFound)
                 {
-                    imageInfo.IsMain = isMain;
-                    Context.Update(imageInfo);
+                    imageData.IsMain = isMain;
+                    Context.Update(imageData);
+                    Context.SaveChanges();
                 }
                 else
                 {
-                    imageInfosToDelete.AddLast(imageInfo);
+                    imageInfosToDelete.AddLast(imageData);
                 }
             }
 
-            foreach(ImageInfo toDelete in imageInfosToDelete)
+            foreach(ImageData toDelete in imageInfosToDelete)
             {
-                Context.ImageData.Remove(toDelete.ImageData);
-                Context.ImageInfo.Remove(toDelete);
+                Context.ImageData.Remove(toDelete);
+                Context.SaveChanges();
             }
 
             return true;
         }
+
+        public async Task<bool> DeleteImage(DeleteImageRequest request)
+        {
+            var toDelete = Context.ImageData.Where(x => x.Id == request.ImageId && x.OfferId == request.OfferId).FirstOrDefault();
+            if (toDelete == null)
+            {
+                return false;
+            }
+            else
+            {
+                Context.ImageData.Remove(toDelete);
+                Context.SaveChanges();
+                return true;
+            }
+            
+        }
+
     }
 }
