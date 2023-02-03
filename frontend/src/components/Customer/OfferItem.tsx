@@ -9,12 +9,13 @@ import {
   Divider,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { ExtendOffer } from "../../types/types";
 //@ts-expect-error
 import Placeholder from "../../images/placeholder.png";
 import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
+import BasketAddModal from "./BasketAddModal";
 
 interface OfferItemProps {
   offer: ExtendOffer;
@@ -23,6 +24,7 @@ const OfferItem = ({ offer }: OfferItemProps) => {
   const { t } = useTranslation();
 
   const navigate = useNavigate();
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
   const onAdd = () => {
     const basketAsString = localStorage.getItem("basket");
@@ -74,10 +76,15 @@ const OfferItem = ({ offer }: OfferItemProps) => {
                 event.stopPropagation();
                 event.preventDefault();
                 onAdd();
+                setOpenModal(true);
               }}
             >
               {t("add")}
             </Button>
+            <BasketAddModal
+              open={openModal}
+              onClose={() => setOpenModal(false)}
+            />
             <Typography variant="h5">{offer.price} PLN</Typography>
           </CardActions>
         </CardContent>

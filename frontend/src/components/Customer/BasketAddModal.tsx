@@ -25,12 +25,9 @@ const BasketAddModal = ({
   return (
     <Dialog open={open} onClose={onClose}>
         <DialogTitle>{ t("basket.basketInfo") }</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-          </DialogContentText>
-        </DialogContent>
         <DialogActions sx={{ p: 3 }}>
-          <Button type="submit" variant="contained" onClick={() => onClose()}>
+          <Button type="submit" variant="contained" onClick={(event) => {event.stopPropagation();
+                event.preventDefault(); onClose();}}>
           OK
           </Button>
         </DialogActions>
